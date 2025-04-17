@@ -9,7 +9,8 @@ const projectsData = [
     description: "I developed a dynamic, fully responsive e-commerce web application that showcases advanced front-end development techniques and user-centric design principles. The project demonstrates my ability to create sophisticated, interactive web experiences using contemporary React ecosystem tools.",
     technologies: ["React", " React Router", "Framer Motion", "Tailwind CSS","netlify"],
     image: "/src/assets/Projects/E commerce app.png",
-    link: "https://ecommerce-app-eshop.netlify.app"
+    link: "https://ecommerce-app-eshop.netlify.app",
+    github: "https://github.com/Mu3ammed-ibrahim/e-commerce-app" // Add your GitHub repo URL here
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ const projectsData = [
     description: "This is a simple game that uses keyframe animations to animate objects towards the game character who has the capability to jump them.",
     technologies: ["Semantic Html", " Javascript", "Css"],
     image: "/src/assets/Projects/Jumping dianasour.png",
-    link: "https://mu3ammed-ibrahim.github.io/Jumping-man"
+    link: "https://mu3ammed-ibrahim.github.io/Jumping-man",
+    github: "https://github.com/Mu3ammed-ibrahim/Jumping-man" // Add your GitHub repo URL here
   },
   {
     id: 3,
@@ -25,7 +27,8 @@ const projectsData = [
     description: "This webpage provides a multipage website with simple navigation between the four pages. It contains some ai art. It presents part of a store front for a ficticious company called Mega-Store.",
     technologies: ["Semantic Html", " Css", "Javascript", "Canva"],
     image: "/src/assets/Projects/Mega store.png",
-    link: "https://kevinstaresdarbon.github.io/css-project/index.html"
+    link: "https://kevinstaresdarbon.github.io/css-project/index.html",
+    github: "https://github.com/Mu3ammed-ibrahim/css-project" // Add your GitHub repo URL here
   },
   {
     id: 4,
@@ -33,7 +36,8 @@ const projectsData = [
     description: "Personal portfolio showcasing projects, skills, and professional experience with a modern design.",
     technologies: ["React", "Framer Motion", "Tailwind CSS", "Netlify"],
     image: "/src/assets/Projects/portfolio app.png",
-    link: "#"
+    link: "#",
+    github: "https://github.com/yourusername/portfolio" // Add your GitHub repo URL here
   }
 ];
 
@@ -141,14 +145,22 @@ export default function Projects() {
                   alt={project.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 gap-4">
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-2 bg-zinc-800 text-white rounded-full font-medium hover:bg-green-700 transition-colors duration-300"
+                    className="px-4 py-2 bg-zinc-800 text-white rounded-full font-medium hover:bg-green-700 transition-colors duration-300 text-sm"
                   >
-                    View Project
+                    Live Demo
+                  </a>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-zinc-800 text-white rounded-full font-medium hover:bg-green-700 transition-colors duration-300 text-sm"
+                  >
+                    GitHub
                   </a>
                 </div>
               </div>
