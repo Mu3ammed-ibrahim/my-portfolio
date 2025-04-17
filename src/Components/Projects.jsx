@@ -8,23 +8,23 @@ const projectsData = [
     title: "E-Commerce Platform",
     description: "I developed a dynamic, fully responsive e-commerce web application that showcases advanced front-end development techniques and user-centric design principles. The project demonstrates my ability to create sophisticated, interactive web experiences using contemporary React ecosystem tools.",
     technologies: ["React", " React Router", "Framer Motion", "Tailwind CSS","netlify"],
-    image: "/src/assets/E commerce app.png",
+    image: "/src/assets/Projects/E commerce app.png",
     link: "https://ecommerce-app-eshop.netlify.app"
   },
   {
     id: 2,
-    title: "weather App",
-    description: "A Kanban-style task management application with drag-and-drop functionality and team collaboration features.",
-    technologies: ["React", " React Router", "Firebase", "Tailwind CSS"],
-    image: "/api/placeholder/600/400",
-    link: "#"
+    title: "Jumping dinasour game",
+    description: "This is a simple game that uses keyframe animations to animate objects towards the game character who has the capability to jump them.",
+    technologies: ["Semantic Html", " Javascript", "Css"],
+    image: "/src/assets/Projects/Jumping dianasour.png",
+    link: "https://mu3ammed-ibrahim.github.io/Jumping-man"
   },
   {
     id: 3,
     title: "Simple Online Store",
     description: "This webpage provides a multipage website with simple navigation between the four pages. It contains some ai art. It presents part of a store front for a ficticious company called Mega-Store.",
     technologies: ["Semantic Html", " Css", "Javascript", "Canva"],
-    image: "/src/assets/Mega store.png",
+    image: "/src/assets/Projects/Mega store.png",
     link: "https://kevinstaresdarbon.github.io/css-project/index.html"
   },
   {
@@ -32,7 +32,7 @@ const projectsData = [
     title: "Portfolio Website",
     description: "Personal portfolio showcasing projects, skills, and professional experience with a modern design.",
     technologies: ["React", "Framer Motion", "Tailwind CSS", "Netlify"],
-    image: "/api/placeholder/600/400",
+    image: "/src/assets/Projects/portfolio app.png",
     link: "#"
   }
 ];
