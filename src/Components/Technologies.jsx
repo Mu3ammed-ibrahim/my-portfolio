@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 
 // Your existing technology icons array
 const technologies = [
-  { name: 'React', icon: '/src/assets/react.png' },
-  { name: 'JavaScript', icon: "/src/assets/js.png" },
-  { name: 'Tailwind Css', icon: '/src/assets/tailwind-css-seeklogo.png' },
-  { name: 'HTML', icon: '/src/assets/html.png' },
-  { name: 'CSS', icon: '/src/assets/css.png' },
-  { name: 'Git', icon: '/src/assets/github.png' },
-  { name: 'Bootstrap', icon: '/src/assets/bootstrap.png' }
+  { name: 'React', icon: '/src/assets/Icons/react.png' },
+  { name: 'JavaScript', icon: "/src/assets/Icons/js.png" },
+  { name: 'Tailwind Css', icon: '/src/assets/Icons/tailwind-css-seeklogo.png' },
+  { name: 'HTML', icon: '/src/assets/Icons/html.png' },
+  { name: 'CSS', icon: '/src/assets/Icons/css.png' },
+  { name: 'Git', icon: '/src/assets/Icons/github.png' },
+  { name: 'Bootstrap', icon: '/src/assets/Icons/bootstrap.png' }
 ];
 
 // Duplicate the technologies array to create a seamless loop effect
