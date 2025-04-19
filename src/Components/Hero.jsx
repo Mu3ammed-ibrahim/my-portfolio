@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import { motion } from "framer-motion";
+import CV from "/public/My Resume (1).pdf"
 import TypingText from "./TypingText";
 
 const Hero = () => {
@@ -25,7 +26,7 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-10 justify-center md:justify-start mt-4">
-          <Button>Download CV</Button>
+          <Button><a href={CV} download="my=cv">Download CV</a></Button>
           <Button bgClass="bg-green-700 hover:bg-white" ><a href="#contact">Hire Me</a></Button>
         </div>
       </motion.div>
