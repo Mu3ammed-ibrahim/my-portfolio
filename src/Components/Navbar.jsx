@@ -6,7 +6,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 1 }}
-      className="py-6 px-8 flex items-center justify-between"
+      className="py-6 px-8 flex items-center sticky top-0 z-10 justify-between"
     >
       <h2 className="text-green-700 text-3xl font-bold">Mo</h2>
       <div className="flex space-x-8">

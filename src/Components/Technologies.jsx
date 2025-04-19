@@ -8,7 +8,9 @@ const technologies = [
   { name: 'Tailwind Css', icon: '/src/assets/Icons/tailwind-css-seeklogo.png' },
   { name: 'HTML', icon: '/src/assets/Icons/html.png' },
   { name: 'CSS', icon: '/src/assets/Icons/css.png' },
-  { name: 'Git', icon: '/src/assets/Icons/github.png' },
+  { name: 'Github', icon: '/src/assets/Icons/github.png' },
+  { name: 'Git', icon: '/src/assets/Icons/git.png' },
+  { name: 'Framer motion', icon: '/src/assets/Icons/framer-motion-logo-png_seeklogo-446185 (1).png' },
   { name: 'Bootstrap', icon: '/src/assets/Icons/bootstrap.png' }
 ];
 
