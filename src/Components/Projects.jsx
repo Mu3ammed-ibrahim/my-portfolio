@@ -1,156 +1,125 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-// Sample project data - replace with your actual projects
 const projectsData = [
   {
     id: 1,
     title: "E-Commerce Platform",
-    description: "I developed a dynamic, fully responsive e-commerce web application that showcases advanced front-end development techniques and user-centric design principles. The project demonstrates my ability to create sophisticated, interactive web experiences using contemporary React ecosystem tools.",
-    technologies: ["React", " React Router", "Framer Motion", "Tailwind CSS","netlify"],
+    description: "A fully responsive e-commerce web application showcasing advanced front-end skills.",
+    technologies: ["React", "React Router", "Framer Motion", "Tailwind CSS"],
     image: "/src/assets/Projects/E commerce app.png",
     link: "https://ecommerce-app-eshop.netlify.app",
-    github: "https://github.com/Mu3ammed-ibrahim/e-commerce-app" // Add your GitHub repo URL here
+    github: "https://github.com/Mu3ammed-ibrahim/e-commerce-app"
   },
   {
     id: 2,
-    title: "Jumping dinasour game",
-    description: "This is a simple game that uses keyframe animations to animate objects towards the game character who has the capability to jump them.",
-    technologies: ["Semantic Html", " Javascript", "Css"],
+    title: "Jumping Dinasour Game",
+    description: "A game where the player jumps obstacles using CSS keyframe animation.",
+    technologies: ["HTML", "CSS", "JavaScript"],
     image: "/src/assets/Projects/Jumping dianasour.png",
     link: "https://mu3ammed-ibrahim.github.io/Jumping-man",
-    github: "https://github.com/Mu3ammed-ibrahim/Jumping-man" // Add your GitHub repo URL here
+    github: "https://github.com/Mu3ammed-ibrahim/Jumping-man"
   },
   {
     id: 3,
     title: "Simple Online Store",
-    description: "This webpage provides a multipage website with simple navigation between the four pages. It contains some ai art. It presents part of a store front for a ficticious company called Mega-Store.",
-    technologies: ["Semantic Html", " Css", "Javascript", "Canva"],
+    description: "Multi-page website for Mega-Store built with clean HTML/CSS and some JavaScript.",
+    technologies: ["HTML", "CSS", "JavaScript"],
     image: "/src/assets/Projects/Mega store.png",
     link: "https://kevinstaresdarbon.github.io/css-project/index.html",
-    github: "https://github.com/Mu3ammed-ibrahim/css-project" // Add your GitHub repo URL here
+    github: "https://github.com/Mu3ammed-ibrahim/css-project"
   },
   {
     id: 4,
     title: "Portfolio Website",
-    description: "Personal portfolio showcasing projects, skills, and professional experience with a modern design.",
-    technologies: ["React", "Framer Motion", "Tailwind CSS", "Netlify"],
+    description: "My personal portfolio to showcase projects and skills with a modern look.",
+    technologies: ["React", "Tailwind CSS", "Framer Motion"],
     image: "/src/assets/Projects/portfolio app.png",
     link: "#",
-    github: "https://github.com/yourusername/portfolio" // Add your GitHub repo URL here
+    github: "https://github.com/yourusername/portfolio"
   }
 ];
 
-// Animation variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
-
-const projectVariants = {
-  hidden: { y: 50, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut"
-    }
-  },
-  hover: {
-    y: -10,
-    transition: {
-      duration: 0.3
-    }
-  }
-};
-
-const tagVariants = {
-  hidden: { scale: 0 },
-  visible: {
-    scale: 1,
-    transition: {
-      duration: 0.3
-    }
-  }
-};
+// Extract unique categories from all projects
+const allCategories = ["All", ...new Set(projectsData.flatMap(project => project.technologies.map(tech => {
+  if (tech.includes("React")) return "React";
+  if (tech === "HTML" || tech === "CSS") return "HTML/CSS";
+  if (tech === "JavaScript") return "JavaScript";
+  return tech;
+})))];
 
 export default function Projects() {
-  const [filter, setFilter] = useState("all");
-  const technologies = ["all", ...new Set(projectsData.flatMap(project => project.technologies))];
-  
-  const filteredProjects = filter === "all" 
-    ? projectsData 
-    : projectsData.filter(project => project.technologies.includes(filter));
+  const [activeTab, setActiveTab] = useState("All");
+
+  const filteredProjects = activeTab === "All"
+    ? projectsData
+    : projectsData.filter(project =>
+        project.technologies.some(tech =>
+          activeTab === "HTML/CSS"
+            ? tech === "HTML" || tech === "CSS"
+            : tech.includes(activeTab)
+        )
+      );
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 bg-zinc-900 text-white">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl font-bold mb-4 text-green-600 ">My Projects</h2>
-          
-          <p className="text-lg text-white max-w-2xl mx-auto">
-            Explore my latest work and the technologies I've been using to solve real-world problems.
-          </p>
-        </motion.div>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-green-700">My Projects</h2>
+          <p className="text-lg mt-2 text-gray-300">Browse by technology category</p>
+        </div>
 
-        {/* Filter buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {technologies.map((tech) => (
-            <motion.button
-              key={tech}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
-                filter === tech
+        {/* Tabs */}
+        <div className="flex flex-wrap justify-center gap-4 mb-10">
+          {allCategories.map(category => (
+            <button
+              key={category}
+              onClick={() => setActiveTab(category)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition duration-300 ${
+                activeTab === category
                   ? "bg-green-700 text-white"
-                  : "bg-green-200 text-gray-800 "
+                  : "bg-zinc-800 text-gray-300 hover:bg-green-700 hover:text-white"
               }`}
-              onClick={() => setFilter(tech)}
             >
-              {tech.charAt(0).toUpperCase() + tech.slice(1)}
-            </motion.button>
+              {category}
+            </button>
           ))}
         </div>
 
-        {/* Projects grid */}
+        {/* Project Grid */}
         <motion.div
-          variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.2 }
+            }
+          }}
+          className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
         >
-          {filteredProjects.map((project) => (
+          {filteredProjects.map(project => (
             <motion.div
               key={project.id}
-              variants={projectVariants}
-              whileHover="hover"
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 }
+              }}
               className="bg-zinc-800 rounded-xl overflow-hidden shadow-lg"
             >
               <div className="relative overflow-hidden h-48">
-                <motion.img
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
+                <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 gap-4">
+                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center gap-4 opacity-0 hover:opacity-100 transition duration-300">
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-zinc-800 text-white rounded-full font-medium hover:bg-green-700 transition-colors duration-300 text-sm"
+                    className="px-4 py-2 bg-green-600 text-white rounded-full text-sm"
                   >
                     Live Demo
                   </a>
@@ -158,34 +127,32 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-zinc-800 text-white rounded-full font-medium hover:bg-green-700 transition-colors duration-300 text-sm"
+                    className="px-4 py-2 bg-green-600 text-white rounded-full text-sm"
                   >
                     GitHub
                   </a>
                 </div>
               </div>
-              
+
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-green-600">{project.title}</h3>
-                <p className="text-white mb-4">{project.description}</p>
-                
+                <h3 className="text-xl font-semibold mb-2 text-green-400">
+                  {project.title}
+                </h3>
+                <p className="text-gray-300 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
-                    <motion.span
+                    <span
                       key={index}
-                      variants={tagVariants}
-                      className="px-3 py-1 bg-emerald-700 text-white text-xs font-medium rounded-full"
+                      className="text-xs px-2 py-1 bg-zinc-700 rounded-full text-gray-200"
                     >
                       {tech}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
               </div>
             </motion.div>
           ))}
         </motion.div>
-        
-        
       </div>
     </section>
   );

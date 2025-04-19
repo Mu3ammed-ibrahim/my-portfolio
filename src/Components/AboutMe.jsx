@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, LucideInstagram, Mail } from "lucide-react";
 
 const AboutMe = () => {
   // State to track active tab
@@ -107,12 +107,14 @@ const AboutMe = () => {
               </motion.a>
 
               <motion.a
-                href="#"
+                href="https://www.instagram.com/m0hammed_code"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ y: -3 }}
                 className="text-white hover:text-green-600"
                 aria-label="Email"
               >
-                <Mail size={22} />
+                <LucideInstagram size={22} />
               </motion.a>
             </motion.div>
           </motion.div>
