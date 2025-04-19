@@ -19,7 +19,7 @@ const Hero = () => {
 
         <div className="h-16 sm:h-20 md:h-24 overflow-hidden">
           <TypingText
-            phrases={["Mohammed Ibrahim", "Frontend Developer", "UI/UX Lover"]}
+            phrases={["Mohammed Ibrahim", "Frontend Developer", "Content Creator"]}
             typingSpeed={100}
             pauseTime={1500}
           />

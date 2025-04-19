@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Linkedin, Github, Check, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Linkedin, Github, Check, Clock, InstagramIcon, Instagram } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
 const ContactMe = () => {
@@ -182,13 +182,13 @@ const ContactMe = () => {
                     <Github className="w-5 h-5" />
                   </motion.a>
                   <motion.a
-                    href="mailto:tota.11@gmail.com"
+                    href="https://www.instagram.com/m0hammed_code"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ y: -3 }}
                     className="bg-zinc-700 text-white hover:bg-green-600 transition-colors duration-300 p-3 rounded-full"
                   >
-                    <Mail className="w-5 h-5" />
+                    <Instagram className="w-5 h-5" />
                   </motion.a>
                 </div>
               </motion.div>
