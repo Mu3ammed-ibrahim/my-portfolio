@@ -8,16 +8,19 @@ const AboutMe = () => {
   const [activeTab, setActiveTab] = useState("about");
 
   // Create animation controls and in-view detection
-  const controls = useAnimation();
+  // Remove triggerOnce: true to allow animations to replay when scrolling
   const [ref, inView] = useInView({
     threshold: 0.3,
-    triggerOnce: true,
   });
+  
+  const controls = useAnimation();
 
-  // Trigger animations when component comes into view
+  // Trigger animations whenever component comes into view
   useEffect(() => {
     if (inView) {
       controls.start("visible");
+    } else {
+      controls.start("hidden");
     }
   }, [controls, inView]);
 
@@ -57,6 +60,20 @@ const AboutMe = () => {
     },
   };
 
+  // Staggered animation for skills and experience items
+  const listItemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: (i) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    }),
+  };
+
   return (
     <section id="about" className="py-20">
       <motion.div
@@ -92,7 +109,7 @@ const AboutMe = () => {
                 href="https://github.com/Mu3ammed-ibrahim"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -3 }}
+                whileHover={{ y: -3, color: "#4ade80" }}
                 className="text-white hover:text-green-600"
                 aria-label="GitHub"
               >
@@ -102,7 +119,7 @@ const AboutMe = () => {
                 href="https://www.linkedin.com/in/mohammed-almutassim-gallab-39a11098"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -3 }}
+                whileHover={{ y: -3, color: "#4ade80" }}
                 className="text-white hover:text-green-600"
                 aria-label="LinkedIn"
               >
@@ -113,7 +130,7 @@ const AboutMe = () => {
                 href="https://www.instagram.com/m0hammed_code"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -3 }}
+                whileHover={{ y: -3, color: "#4ade80" }}
                 className="text-white hover:text-green-600"
                 aria-label="Email"
               >
@@ -133,8 +150,9 @@ const AboutMe = () => {
 
             {/* Tab Navigation */}
             <div className="flex border-b border-zinc-700 mb-6">
-              <button
+              <motion.button
                 onClick={() => setActiveTab("about")}
+                whileHover={{ y: -2 }}
                 className={`py-2 px-4 font-medium ${
                   activeTab === "about"
                     ? "text-green-500 border-b-2 border-green-500"
@@ -142,9 +160,10 @@ const AboutMe = () => {
                 }`}
               >
                 About Me
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 onClick={() => setActiveTab("experience")}
+                whileHover={{ y: -2 }}
                 className={`py-2 px-4 font-medium ${
                   activeTab === "experience"
                     ? "text-green-500 border-b-2 border-green-500"
@@ -152,9 +171,10 @@ const AboutMe = () => {
                 }`}
               >
                 Experience
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 onClick={() => setActiveTab("skills")}
+                whileHover={{ y: -2 }}
                 className={`py-2 px-4 font-medium ${
                   activeTab === "skills"
                     ? "text-green-500 border-b-2 border-green-500"
@@ -162,7 +182,7 @@ const AboutMe = () => {
                 }`}
               >
                 Skills
-              </button>
+              </motion.button>
             </div>
 
             {/* About Tab Content */}
@@ -172,7 +192,12 @@ const AboutMe = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <motion.p className="text-lg text-white mb-6">
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="text-lg text-white mb-6"
+                >
                   Hello! I'm{" "}
                   <span className="font-semibold">Mohammed Ibrahim</span>, a
                   final-year Mechatronics Engineering student with a growing
@@ -182,7 +207,12 @@ const AboutMe = () => {
                   and functional digital experiences.
                 </motion.p>
 
-                <motion.p className="text-lg text-white mb-6">
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="text-lg text-white mb-6"
+                >
                   Through self-teaching and practical experience, I've evolved
                   from building basic applications to developing comprehensive
                   e-commerce platforms. I enjoy applying my engineering mindset
@@ -198,8 +228,14 @@ const AboutMe = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
+                className="space-y-8"
               >
-                <div className="mb-8 bg-zinc-800 p-6 rounded-lg shadow-sm border border-zinc-700">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="mb-8 bg-zinc-800 p-6 rounded-lg shadow-sm border border-zinc-700"
+                >
                   <div className="mb-4 pb-4 border-b border-zinc-700">
                     <h4 className="font-medium text-white">
                       Front-end Development Intern
@@ -208,18 +244,20 @@ const AboutMe = () => {
                       KreativeStorm Company | 2024
                     </p>
                     <ul className="mt-2 text-gray-300 pl-5 list-disc">
-                      <li>
-                        Collaborated with a development team to build an
-                        interactive shopping store
-                      </li>
-                      <li>
-                        Developed interactive web games including a jumping man
-                        game
-                      </li>
-                      <li>
-                        Created responsive calculator application using HTML,
-                        CSS and JavaScript
-                      </li>
+                      {["Collaborated with a development team to build an interactive shopping store",
+                        "Developed interactive web games including a jumping man game",
+                        "Created responsive calculator application using HTML, CSS and JavaScript"
+                      ].map((item, i) => (
+                        <motion.li
+                          key={i}
+                          custom={i}
+                          variants={listItemVariants}
+                          initial="hidden"
+                          animate="visible"
+                        >
+                          {item}
+                        </motion.li>
+                      ))}
                     </ul>
                   </div>
 
@@ -229,18 +267,24 @@ const AboutMe = () => {
                     </h4>
                     <p className="text-sm text-gray-400">2022 - Present</p>
                     <ul className="mt-2 text-gray-300 pl-5 list-disc">
-                      <li>Built a comprehensive e-commerce application</li>
-                      <li>Developed a advance weather app using React</li>
-                      <li>
-                        Created an interactive travel application with React
-                      </li>
-                      <li>
-                        Designed and implemented a weather app and calculator
-                        using vanilla JavaScript
-                      </li>
+                      {["Built a comprehensive e-commerce application",
+                        "Developed a advance weather app using React",
+                        "Created an interactive travel application with React",
+                        "Designed and implemented a weather app and calculator using vanilla JavaScript"
+                      ].map((item, i) => (
+                        <motion.li
+                          key={i}
+                          custom={i}
+                          variants={listItemVariants}
+                          initial="hidden"
+                          animate="visible"
+                        >
+                          {item}
+                        </motion.li>
+                      ))}
                     </ul>
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
             )}
 
@@ -251,9 +295,14 @@ const AboutMe = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <h3 className="text-xl font-semibold mb-4 text-green-700">
+                <motion.h3 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-xl font-semibold mb-4 text-green-700"
+                >
                   Technical Skills
-                </h3>
+                </motion.h3>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
                   {[
@@ -267,27 +316,48 @@ const AboutMe = () => {
                     "Framer motion",
                     "netlify",
                   ].map((skill, index) => (
-                    <div
+                    <motion.div
                       key={skill}
+                      custom={index}
+                      variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: i => ({
+                          opacity: 1,
+                          y: 0,
+                          transition: { delay: i * 0.1, duration: 0.4 }
+                        })
+                      }}
+                      initial="hidden"
+                      animate="visible"
+                      whileHover={{ scale: 1.05, backgroundColor: "#16a34a" }}
                       className="py-2 px-4 bg-green-700 rounded-lg shadow-sm text-center text-white"
                     >
                       {skill}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
 
-                <h3 className="text-xl font-semibold mt-8 mb-4 text-green-700">
+                <motion.h3 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.3 }}
+                  className="text-xl font-semibold mt-8 mb-4 text-green-700"
+                >
                   Currently Learning
-                </h3>
+                </motion.h3>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
                   {["Redux"].map((skill, index) => (
-                    <div
+                    <motion.div
                       key={skill}
+                      variants={skillVariants}
+                      initial="hidden"
+                      animate="visible"
+                      whileHover={{ scale: 1.05, backgroundColor: "#16a34a" }}
                       className="py-2 px-4 bg-green-700 rounded-lg shadow-sm text-center text-white"
                     >
                       {skill}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>
