@@ -11,7 +11,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="flex flex-col gap-6 md:gap-10 justify-center w-full md:w-1/2 text-center md:text-left mt-10 md:mt-0"
+        className="flex flex-col z-0 gap-6 md:gap-10 justify-center w-full md:w-1/2 text-center md:text-left mt-10 md:mt-0"
       >
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-green-700 font-bold">
           Hello, I&apos;m
