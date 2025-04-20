@@ -45,42 +45,13 @@ const projectsData = [
   },
 ];
 
-// Extract unique categories from all projects
-const allCategories = [
-  "All",
-  ...new Set(
-    projectsData.flatMap((project) =>
-      project.technologies.map((tech) => {
-        if (tech.includes("React")) return "React";
-        if (tech === "HTML" || tech === "CSS") return "HTML/CSS";
-        if (tech === "JavaScript") return "JavaScript";
-        return tech;
-      })
-    )
-  ),
-];
-
 export default function Projects() {
-  const [activeTab, setActiveTab] = useState("All");
-  
   // Animation controls setup
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.2,
     // Removed triggerOnce to allow animations to replay
   });
-
-  // Filter projects based on active tab
-  const filteredProjects =
-    activeTab === "All"
-      ? projectsData
-      : projectsData.filter((project) =>
-          project.technologies.some((tech) =>
-            activeTab === "HTML/CSS"
-              ? tech === "HTML" || tech === "CSS"
-              : tech.includes(activeTab)
-          )
-        );
 
   // Trigger animations when component comes into view
   useEffect(() => {
@@ -90,20 +61,6 @@ export default function Projects() {
       controls.start("hidden");
     }
   }, [controls, inView]);
-
-  // Animation for category buttons
-  const buttonVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: i => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.05,
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    })
-  };
 
   // Animation variants for heading section
   const headingVariants = {
@@ -157,32 +114,9 @@ export default function Projects() {
         >
           <h2 className="text-4xl font-bold text-green-700">My Projects</h2>
           <p className="text-lg mt-2 text-gray-300">
-            Browse by technology category
+            Check out some of my recent work
           </p>
         </motion.div>
-
-        {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
-          {allCategories.map((category, index) => (
-            <motion.button
-              key={category}
-              custom={index}
-              variants={buttonVariants}
-              initial="hidden"
-              animate={controls}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setActiveTab(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition duration-300 ${
-                activeTab === category
-                  ? "bg-green-700 text-white"
-                  : "bg-zinc-800 text-gray-300 hover:bg-green-700 hover:text-white"
-              }`}
-            >
-              {category}
-            </motion.button>
-          ))}
-        </div>
 
         {/* Project Grid */}
         <motion.div
@@ -191,7 +125,7 @@ export default function Projects() {
           animate={controls}
           className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
         >
-          {filteredProjects.map((project) => (
+          {projectsData.map((project) => (
             <motion.div
               key={project.id}
               variants={projectVariants}
@@ -260,25 +194,6 @@ export default function Projects() {
             </motion.div>
           ))}
         </motion.div>
-        
-        {/* Empty state if no projects match the filter */}
-        {filteredProjects.length === 0 && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-20"
-          >
-            <p className="text-xl text-gray-400">No projects found with this technology.</p>
-            <motion.button
-              onClick={() => setActiveTab("All")}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-4 px-6 py-2 bg-green-700 text-white rounded-full"
-            >
-              Show all projects
-            </motion.button>
-          </motion.div>
-        )}
       </div>
     </section>
   );
