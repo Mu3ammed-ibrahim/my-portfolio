@@ -2,7 +2,7 @@ import React from "react";
 import Button from "./Button";
 import { motion } from "framer-motion";
 import Logo from "../assets/Icons/my avatar.png" 
-import CV from "/public/My Resume (1).pdf"
+import CV from "/public/_leatest update My Resume.pdf";
 import TypingText from "./TypingText";
 
 const Hero = () => {
