@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import { motion } from "framer-motion";
+import Logo from "../assets/Icons/my avatar.png" 
 import CV from "/public/My Resume (1).pdf"
 import TypingText from "./TypingText";
 
@@ -38,7 +39,7 @@ const Hero = () => {
         className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0"
       >
         <img 
-          src="/src/assets/my avatar.png" 
+          src={Logo}
           alt="Mohammed Ibrahim" 
           className="w-64 sm:w-72 md:w-80 lg:w-96 h-auto  object-contain" 
         />

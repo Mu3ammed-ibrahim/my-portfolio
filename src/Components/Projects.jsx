@@ -1,45 +1,45 @@
 import { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
+import ProjectImage1 from "../assets/Projects/E commerce app.png";
+import ProjectImage2 from "../assets/Projects/Jumping dianasour.png";
+import ProjectImage3 from "../assets/Projects/Mega store.png";
+import ProjectImage4 from "../assets/Projects/portfolio app.png";
 import { useInView } from "react-intersection-observer";
 
 const projectsData = [
   {
     id: 1,
     title: "E-Commerce Platform",
-    description:
-      "A fully responsive e-commerce web application showcasing advanced front-end skills.",
+    description: "A fully responsive e-commerce web application showcasing advanced front-end skills.",
     technologies: ["React", "React Router", "Framer Motion", "Tailwind CSS"],
-    image: "/src/assets/Projects/E commerce app.png",
+    image: ProjectImage1,
     link: "https://ecommerce-app-eshop.netlify.app",
     github: "https://github.com/Mu3ammed-ibrahim/e-commerce-app",
   },
   {
     id: 2,
     title: "Jumping Dinasour Game",
-    description:
-      "A game where the player jumps obstacles using CSS keyframe animation.",
+    description: "A game where the player jumps obstacles using CSS keyframe animation.",
     technologies: ["HTML", "CSS", "JavaScript"],
-    image: "/src/assets/Projects/Jumping dianasour.png",
+    image: ProjectImage2,
     link: "https://mu3ammed-ibrahim.github.io/Jumping-man",
     github: "https://github.com/Mu3ammed-ibrahim/Jumping-man",
   },
   {
     id: 3,
     title: "Simple Online Store",
-    description:
-      "Multi-page website for Mega-Store built with clean HTML/CSS and some JavaScript.",
+    description: "Multi-page website for Mega-Store built with clean HTML/CSS and some JavaScript.",
     technologies: ["HTML", "CSS", "JavaScript"],
-    image: "/src/assets/Projects/Mega store.png",
+    image: ProjectImage3,
     link: "https://kevinstaresdarbon.github.io/css-project/index.html",
     github: "https://github.com/Mu3ammed-ibrahim/css-project",
   },
   {
     id: 4,
     title: "Portfolio Website",
-    description:
-      "My personal portfolio to showcase projects and skills with a modern look.",
+    description: "My personal portfolio to showcase projects and skills with a modern look.",
     technologies: ["React", "Tailwind CSS", "Framer Motion"],
-    image: "/src/assets/Projects/portfolio app.png",
+    image: ProjectImage4,
     link: "#",
     github: "https://github.com/yourusername/portfolio",
   },

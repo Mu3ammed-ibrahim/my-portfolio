@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Logo from "../assets/Icons/my avatar.png"
 import { Github, Linkedin, LucideInstagram, Mail } from "lucide-react";
 
 const AboutMe = () => {
@@ -98,7 +99,7 @@ const AboutMe = () => {
               className="relative w-64 h-64 rounded-full overflow-hidden mb-6 shadow-xl border-4 border-green-700"
             >
               <img
-                src="/src/assets/my avatar.png"
+                src={Logo}
                 alt="Mohammed Ibrahim"
                 className="w-full h-full object-cover"
               />
