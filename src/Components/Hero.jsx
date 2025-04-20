@@ -1,8 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import { motion } from "framer-motion";
-import Logo from "../assets/Icons/my avatar.png" 
-import CV from "/public/_leatest update My Resume.pdf";
+import Logo from "../assets/Icons/my avatar.png";
 import TypingText from "./TypingText";
 
 const Hero = () => {
@@ -27,13 +26,13 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-10 justify-center md:justify-start mt-4">
-          <Button><a href={CV} download="my=cv">Download CV</a></Button>
+          <Button><a href="/public/_leatest update My Resume.pdf" download="Mohammed Ibrahim Resume">Download CV</a></Button>
           <Button bgClass="bg-green-700 hover:bg-white" ><a href="#contact">Hire Me</a></Button>
         </div>
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, x: 100 }}
+        initial={{ opacity: 0, x: 100 }}gi
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
         className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0"
