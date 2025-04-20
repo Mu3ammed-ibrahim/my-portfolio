@@ -23,9 +23,12 @@ const AboutMe = () => {
 
   // Animation variants
   const containerVariants = {
-    hidden: {},
+    hidden: { opacity: 0, y: 20 },
     visible: {
+      opacity: 1,
+      y: 0,
       transition: {
+        duration: 0.8,
         staggerChildren: 0.2,
       },
     },
@@ -37,7 +40,7 @@ const AboutMe = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.8,
         ease: "easeOut",
       },
     },
