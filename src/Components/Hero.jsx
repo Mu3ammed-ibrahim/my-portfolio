@@ -19,28 +19,39 @@ const Hero = () => {
 
         <div className="h-16 sm:h-20 md:h-24 overflow-hidden">
           <TypingText
-            phrases={["Mohammed Ibrahim", "Frontend Developer", "Content Creator"]}
+            phrases={[
+              "Mohammed Ibrahim",
+              "Frontend Developer",
+              "Content Creator",
+            ]}
             typingSpeed={100}
             pauseTime={1500}
           />
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-10 justify-center md:justify-start mt-4">
-          <Button><a href="/public/_leatest update My Resume.pdf" download="Mohammed Ibrahim Resume">Download CV</a></Button>
-          <Button bgClass="bg-green-700 hover:bg-white" ><a href="#contact">Hire Me</a></Button>
+          <Button>
+            <a href="/My_Resume.pdf" download="Mohammed Ibrahim Resume">
+              Download CV
+            </a>
+          </Button>
+          <Button bgClass="bg-green-700 hover:bg-white">
+            <a href="#contact">Hire Me</a>
+          </Button>
         </div>
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, x: 100 }}gi
+        initial={{ opacity: 0, x: 100 }}
+        gi
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
         className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0"
       >
-        <img 
+        <img
           src={Logo}
-          alt="Mohammed Ibrahim" 
-          className="w-64 sm:w-72 md:w-80 lg:w-96 h-auto  object-contain" 
+          alt="Mohammed Ibrahim"
+          className="w-64 sm:w-72 md:w-80 lg:w-96 h-auto  object-contain"
         />
       </motion.div>
     </section>
