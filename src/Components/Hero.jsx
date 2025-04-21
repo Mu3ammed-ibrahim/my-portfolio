@@ -17,7 +17,7 @@ const Hero = () => {
           Hello, I&apos;m
         </h1>
 
-        <div className="h-16 sm:h-20 md:h-24 overflow-hidden">
+        <div className="h-19 sm:h-20 md:h-24 overflow-hidden">
           <TypingText
             phrases={[
               "Mohammed Ibrahim",

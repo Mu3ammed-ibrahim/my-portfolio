@@ -46,6 +46,9 @@ const projectsData = [
 ];
 
 export default function Projects() {
+  // Track which project overlay is active (for mobile)
+  const [activeProject, setActiveProject] = useState(null);
+  
   // Animation controls setup
   const controls = useAnimation();
   const [ref, inView] = useInView({
@@ -100,6 +103,15 @@ export default function Projects() {
     }
   };
 
+  // Toggle project overlay
+  const toggleProjectOverlay = (projectId) => {
+    if (activeProject === projectId) {
+      setActiveProject(null);
+    } else {
+      setActiveProject(projectId);
+    }
+  };
+
   return (
     <section id="projects" className="py-20 bg-zinc-900 text-white">
       <div 
@@ -137,6 +149,7 @@ export default function Projects() {
                 className="relative overflow-hidden h-48"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
+                onClick={() => toggleProjectOverlay(project.id)}
               >
                 <img
                   src={project.image}
@@ -144,9 +157,9 @@ export default function Projects() {
                   className="w-full h-full object-cover"
                 />
                 <motion.div 
-                  className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center gap-4 opacity-0 hover:opacity-100 transition duration-300"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
+                  className={`absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center gap-4 transition duration-300 ${
+                    activeProject === project.id ? 'opacity-100' : 'opacity-0 hover:opacity-100'
+                  }`}
                 >
                   <motion.a
                     href={project.link}
@@ -155,6 +168,8 @@ export default function Projects() {
                     className="px-4 py-2 bg-green-600 text-white rounded-full text-sm"
                     whileHover={{ scale: 1.1, backgroundColor: "#16a34a" }}
                     whileTap={{ scale: 0.95 }}
+                    // Stop propagation to prevent toggling the overlay when clicking links
+                    onClick={(e) => e.stopPropagation()}
                   >
                     Live Demo
                   </motion.a>
@@ -165,6 +180,7 @@ export default function Projects() {
                     className="px-4 py-2 bg-green-600 text-white rounded-full text-sm"
                     whileHover={{ scale: 1.1, backgroundColor: "#16a34a" }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={(e) => e.stopPropagation()}
                   >
                     GitHub
                   </motion.a>
