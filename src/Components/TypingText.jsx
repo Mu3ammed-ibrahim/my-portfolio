@@ -36,7 +36,7 @@ const TypingText = ({ phrases, typingSpeed = 100, pauseTime = 1500 }) => {
 
   return (
     <motion.p
-      className="text-5xl font-semibold text-white"
+      className="text-5xl font-semibold z-10 text-white"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}

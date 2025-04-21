@@ -9,7 +9,7 @@ const Navbar = () => {
       transition={{ duration: 1 }}
       className="py-6 px-8 flex items-center sticky top-0 z-10 justify-between bg-zinc-900 bg-opacity-10 backdrop-filter backdrop-blur-lg  shadow-lg"
     >
-      <h2 className="text-green-700 text-3xl font-bold">{`</Mo>`}</h2>
+      <h2 className="text-green-700 text-xl sm:text-3xl md:4xl font-bold">{`</Mo>`}</h2>
       <div className="flex space-x-8">
         <a
           href="#about"
