@@ -308,6 +308,8 @@ const AboutMe = () => {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
                   {[
                     "React.Js",
+                    "Redux",
+                    "Redux toolkit",
                     "Semantic Html",
                     "Css",
                     "Javascript",
@@ -348,7 +350,7 @@ const AboutMe = () => {
                 </motion.h3>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
-                  {["Redux"].map((skill, index) => (
+                  {["TypeScript"].map((skill, index) => (
                     <motion.div
                       key={skill}
                       variants={skillVariants}
