@@ -6,6 +6,7 @@ import CssIcon from "../assets/Icons/css.png";
 import GitIcon from "../assets/Icons/git.png";
 import GithubIcon from "../assets/Icons/github.png";
 import FramerIcon from "../assets/Icons/framer-motion-logo-png_seeklogo-446185 (1).png";
+import ReduxIcon from "../assets/Icons/Redux.png";
 import TailwindcssIcon from "../assets/Icons/tailwind-css-seeklogo.png";
 import BootsrapIcon from "../assets/Icons/bootstrap.png";
 
@@ -22,6 +23,7 @@ const technologies = [
   { name: "Git", icon: GitIcon },
   { name: "Framer motion", icon: FramerIcon },
   { name: "Bootstrap", icon: BootsrapIcon },  
+  { name: "Redux", icon: ReduxIcon },
 ];
 
 // Duplicate the technologies array to create a seamless loop effect
