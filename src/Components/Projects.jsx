@@ -4,9 +4,19 @@ import ProjectImage1 from "../assets/Projects/E commerce app.png";
 import ProjectImage2 from "../assets/Projects/Jumping dianasour.png";
 import ProjectImage3 from "../assets/Projects/Mega store.png";
 import ProjectImage4 from "../assets/Projects/portfolio app.png";
+import ProjectImage5 from "../assets/Projects/watchly.png";
 import { useInView } from "react-intersection-observer";
 
 const projectsData = [
+  {
+    id: 5,
+    title: "Watchly",
+    description: "A web application for watching movies and TV shows.",
+    technologies: ["React", "Tailwind CSS", "Framer Motion","Redux Toolkit","React Router","Semantic Html"],
+    image: ProjectImage5,
+    link: "https://watchly-m.netlify.app/",
+    github: "https://github.com/Mu3ammed-ibrahim/watchly",
+  },
   {
     id: 1,
     title: "E-Commerce Platform",
@@ -15,6 +25,15 @@ const projectsData = [
     image: ProjectImage1,
     link: "https://ecommerce-app-eshop.netlify.app",
     github: "https://github.com/Mu3ammed-ibrahim/e-commerce-app",
+  },
+  {
+    id: 4,
+    title: "Portfolio Website",
+    description: "My personal portfolio to showcase projects and skills with a modern look.",
+    technologies: ["React", "Tailwind CSS", "Framer Motion"],
+    image: ProjectImage4,
+    link: "#",
+    github: "https://github.com/Mu3ammed-ibrahim/my-portfolio",
   },
   {
     id: 2,
@@ -33,16 +52,7 @@ const projectsData = [
     image: ProjectImage3,
     link: "https://kevinstaresdarbon.github.io/css-project/index.html",
     github: "https://github.com/Mu3ammed-ibrahim/css-project",
-  },
-  {
-    id: 4,
-    title: "Portfolio Website",
-    description: "My personal portfolio to showcase projects and skills with a modern look.",
-    technologies: ["React", "Tailwind CSS", "Framer Motion"],
-    image: ProjectImage4,
-    link: "#",
-    github: "https://github.com/yourusername/portfolio",
-  },
+  }
 ];
 
 export default function Projects() {
