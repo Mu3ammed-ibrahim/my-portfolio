@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ReactIcon from "../assets/Icons/react.png";
+import NextIcon from "../assets/Icons/nextjs.svg";
 import JavascriptIcon from "../assets/Icons/js.png";
 import HtmlIcon from "../assets/Icons/html.png";
 import CssIcon from "../assets/Icons/css.png";
@@ -15,6 +16,7 @@ import { motion } from "framer-motion";
 // Your existing technology icons array
 const technologies = [
   { name: "React", icon: ReactIcon },
+  {name: "Next Js", icon: NextIcon },
   { name: "JavaScript", icon: JavascriptIcon },
   { name: "Tailwind Css", icon: TailwindcssIcon },
   { name: "HTML", icon: HtmlIcon },

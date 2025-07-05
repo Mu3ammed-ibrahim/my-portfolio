@@ -307,7 +307,8 @@ const AboutMe = () => {
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
                   {[
-                    "React.Js",
+                    "React Js",
+                    "Next Js",
                     "Redux",
                     "Redux toolkit",
                     "Semantic Html",
