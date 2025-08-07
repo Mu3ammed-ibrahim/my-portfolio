@@ -5,9 +5,19 @@ import ProjectImage2 from "../assets/Projects/Jumping dianasour.png";
 import ProjectImage3 from "../assets/Projects/Mega store.png";
 import ProjectImage4 from "../assets/Projects/portfolio app.png";
 import ProjectImage5 from "../assets/Projects/watchly.png";
+import ProjectImage6 from "../assets/Projects/Trackify.png";
 import { useInView } from "react-intersection-observer";
 
 const projectsData = [
+  {
+    id: 6,
+    title: "Trackify",
+    description: "Trackify is a modern, responsive expense tracking web application built to help users manage their personal finances with ease. ",
+    technologies: ["Next js","React", "Tailwind CSS", "Framer Motion","Redux Toolkit","Supabase","Semantic Html","Rechart"],
+    image: ProjectImage6,
+    link: " https://lnkd.in/dK52KphC",
+    github: "https://github.com/Mu3ammed-ibrahim/Trackify",
+  },
   {
     id: 5,
     title: "Watchly",
@@ -123,19 +133,19 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 bg-zinc-900 text-white">
+    <section id="projects" className="py-20 text-white bg-zinc-900">
       <div 
         ref={ref}
-        className="container mx-auto px-4"
+        className="container px-4 mx-auto"
       >
         <motion.div 
           initial="hidden"
           animate={controls}
           variants={headingVariants}
-          className="text-center mb-12"
+          className="mb-12 text-center"
         >
           <h2 className="text-4xl font-bold text-green-700">My Projects</h2>
-          <p className="text-lg mt-2 text-gray-300">
+          <p className="mt-2 text-lg text-gray-300">
             Check out some of my recent work
           </p>
         </motion.div>
@@ -145,7 +155,7 @@ export default function Projects() {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
         >
           {projectsData.map((project) => (
             <motion.div
@@ -153,10 +163,10 @@ export default function Projects() {
               variants={projectVariants}
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}
-              className="bg-zinc-800 rounded-xl overflow-hidden shadow-lg"
+              className="overflow-hidden shadow-lg bg-zinc-800 rounded-xl"
             >
               <motion.div 
-                className="relative overflow-hidden h-48"
+                className="relative h-48 overflow-hidden"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => toggleProjectOverlay(project.id)}
@@ -164,7 +174,7 @@ export default function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="object-cover w-full h-full"
                 />
                 <motion.div 
                   className={`absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center gap-4 transition duration-300 ${
@@ -175,7 +185,7 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-green-600 text-white rounded-full text-sm"
+                    className="px-4 py-2 text-sm text-white bg-green-600 rounded-full"
                     whileHover={{ scale: 1.1, backgroundColor: "#16a34a" }}
                     whileTap={{ scale: 0.95 }}
                     // Stop propagation to prevent toggling the overlay when clicking links
@@ -187,7 +197,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-green-600 text-white rounded-full text-sm"
+                    className="px-4 py-2 text-sm text-white bg-green-600 rounded-full"
                     whileHover={{ scale: 1.1, backgroundColor: "#16a34a" }}
                     whileTap={{ scale: 0.95 }}
                     onClick={(e) => e.stopPropagation()}
@@ -198,10 +208,10 @@ export default function Projects() {
               </motion.div>
 
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-green-400">
+                <h3 className="mb-2 text-xl font-semibold text-green-400">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
+                <p className="mb-4 text-gray-300">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
                     <motion.span
@@ -210,7 +220,7 @@ export default function Projects() {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.1, duration: 0.3 }}
                       whileHover={{ scale: 1.1, backgroundColor: "#166534" }}
-                      className="text-xs px-2 py-1 bg-zinc-700 rounded-full text-gray-200"
+                      className="px-2 py-1 text-xs text-gray-200 rounded-full bg-zinc-700"
                     >
                       {tech}
                     </motion.span>
