@@ -9,6 +9,7 @@ import GithubIcon from "../assets/Icons/github.png";
 import FramerIcon from "../assets/Icons/framer-motion-logo-png_seeklogo-446185 (1).png";
 import ReduxIcon from "../assets/Icons/Redux.png";
 import TailwindcssIcon from "../assets/Icons/tailwind-css-seeklogo.png";
+import SupabaseIcon from "../assets/Icons/Supabase.png";
 import BootsrapIcon from "../assets/Icons/bootstrap.png";
 
 import { motion } from "framer-motion";
@@ -26,6 +27,7 @@ const technologies = [
   { name: "Framer motion", icon: FramerIcon },
   { name: "Bootstrap", icon: BootsrapIcon },  
   { name: "Redux", icon: ReduxIcon },
+  { name: "Supabase", icon: SupabaseIcon },
 ];
 
 // Duplicate the technologies array to create a seamless loop effect
@@ -72,12 +74,12 @@ export default function Technologies() {
 
   return (
     <div id="tech-slider-container" className="py-16 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10 text-green-600">
+      <div className="max-w-6xl px-4 mx-auto">
+        <h2 className="mb-10 text-3xl font-bold text-center text-green-600">
           My Technology Stack
         </h2>
 
-        <div className="relative overflow-hidden w-full">
+        <div className="relative w-full overflow-hidden">
           {isVisible ? (
             <motion.div
               className="flex"
@@ -97,15 +99,15 @@ export default function Technologies() {
               {duplicatedTechnologies.map((tech, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center mx-4 w-20"
+                  className="flex flex-col items-center w-20 mx-4"
                 >
-                  <div className="flex items-center justify-center w-16 h-16 bg-zinc-900 rounded-full shadow-md mb-2">
+                  <div className="flex items-center justify-center w-16 h-16 mb-2 rounded-full shadow-md bg-zinc-900">
                     {/* Added loading="lazy" attribute and image optimization attributes */}
                     <img
                       src={tech.icon}
                       alt={`${tech.name} icon`}
                       loading="lazy"
-                      className="max-w-full max-h-full object-contain p-2"
+                      className="object-contain max-w-full max-h-full p-2"
                     />
                   </div>
                   <span className="text-sm font-medium text-white">
@@ -115,9 +117,9 @@ export default function Technologies() {
               ))}
             </motion.div>
           ) : (
-            <div className="flex justify-center items-center h-24">
+            <div className="flex items-center justify-center h-24">
               {/* A simple loading placeholder that shows before the slider is visible */}
-              <div className="text-green-600 font-medium">
+              <div className="font-medium text-green-600">
                 Loading technologies...
               </div>
             </div>

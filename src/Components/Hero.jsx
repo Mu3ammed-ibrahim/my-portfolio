@@ -6,30 +6,30 @@ import TypingText from "./TypingText";
 
 const Hero = () => {
   return (
-    <section className="flex flex-col-reverse md:flex-row items-center  justify-between min-h-screen py-10 px-4 md:px-10 overflow-hidden">
+    <section className="flex flex-col-reverse items-center justify-between min-h-screen px-4 py-10 overflow-hidden md:flex-row md:px-10">
       <motion.div
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="flex flex-col z-0 gap-6 md:gap-10 justify-center w-full md:w-1/2 text-center md:text-left mt-10 md:mt-0"
+        className="z-0 flex flex-col justify-center w-full gap-6 mt-10 text-center md:gap-10 md:w-1/2 md:text-left md:mt-0"
       >
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-green-700 font-bold">
+        <h1 className="text-4xl font-bold text-green-700 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
           Hello, I&apos;m
         </h1>
 
-        <div className="h-19 sm:h-20 md:h-24 overflow-hidden">
+        <div className="overflow-hidden h-19 sm:h-20 md:h-24">
           <TypingText
             phrases={[
               "Mohammed Ibrahim",
               "Frontend Developer",
-              "Content Creator",
+              "Web Designer",
             ]}
             typingSpeed={100}
             pauseTime={1500}
           />
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-10 justify-center md:justify-start mt-4">
+        <div className="flex flex-col justify-center gap-4 mt-4 sm:flex-row sm:gap-6 md:gap-10 md:justify-start">
           <Button>
             <a href="/My_Resume.pdf" download="Mohammed Ibrahim Resume">
               Download CV
@@ -46,12 +46,12 @@ const Hero = () => {
         gi
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
-        className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0"
+        className="flex justify-center w-full mb-8 md:w-1/2 md:mb-0"
       >
         <img
           src={Logo}
           alt="Mohammed Ibrahim"
-          className="w-64 sm:w-72 md:w-80 lg:w-96 h-auto  object-contain"
+          className="object-contain w-64 h-auto sm:w-72 md:w-80 lg:w-96"
         />
       </motion.div>
     </section>
