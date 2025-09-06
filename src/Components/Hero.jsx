@@ -19,11 +19,7 @@ const Hero = () => {
 
         <div className="overflow-hidden h-19 sm:h-20 md:h-24">
           <TypingText
-            phrases={[
-              "Mohammed Ibrahim",
-              "Frontend Developer",
-              "Web Designer",
-            ]}
+            phrases={["Mohammed Ibrahim", "Frontend Developer", "Web Designer"]}
             typingSpeed={100}
             pauseTime={1500}
           />
@@ -31,7 +27,11 @@ const Hero = () => {
 
         <div className="flex flex-col justify-center gap-4 mt-4 sm:flex-row sm:gap-6 md:gap-10 md:justify-start">
           <Button>
-            <a href="/public/Mohammed Almuatsim Ibrahim Gallab RESUME.pdf" download="Mohammed Almuatsim Ibrahim Gallab RESUME">
+            <a
+              href="/Mohammed Almuatsim Ibrahim Gallab RESUME.pdf"
+              download="Mohammed Almuatsim Ibrahim Gallab RESUME"
+              rel="noopener noreferrer"
+            >
               Download CV
             </a>
           </Button>
