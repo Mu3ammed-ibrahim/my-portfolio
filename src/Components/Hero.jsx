@@ -31,7 +31,7 @@ const Hero = () => {
 
         <div className="flex flex-col justify-center gap-4 mt-4 sm:flex-row sm:gap-6 md:gap-10 md:justify-start">
           <Button>
-            <a href="/My_Resume.pdf" download="Mohammed Ibrahim Resume">
+            <a href="/public/Mohammed Almuatsim Ibrahim Gallab RESUME.pdf" download="Mohammed Almuatsim Ibrahim Gallab RESUME">
               Download CV
             </a>
           </Button>
