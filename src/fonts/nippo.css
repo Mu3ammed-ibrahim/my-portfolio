@@ -1,0 +1,63 @@
+/*
+ * Consolidated Nippo font declarations.
+ * Exposes a single 'Nippo' family (variable when available) and
+ * defines named weight fallbacks for older browsers.
+ */
+
+@font-face {
+  font-family: "Nippo";
+  src: url("../fonts/Nippo-Variable.woff2") format("woff2"),
+    url("../fonts/Nippo-Variable.woff") format("woff"),
+    url("../fonts/Nippo-Variable.ttf") format("truetype");
+  /* variable font covers a continuous range */
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Named weight fallbacks (non-variable) */
+@font-face {
+  font-family: "Nippo";
+  src: url("../fonts/Nippo-Extralight.woff2") format("woff2"),
+    url("../fonts/Nippo-Extralight.woff") format("woff"),
+    url("../fonts/Nippo-Extralight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nippo";
+  src: url("../fonts/Nippo-Light.woff2") format("woff2"),
+    url("../fonts/Nippo-Light.woff") format("woff"),
+    url("../fonts/Nippo-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nippo";
+  src: url("../fonts/Nippo-Regular.woff2") format("woff2"),
+    url("../fonts/Nippo-Regular.woff") format("woff"),
+    url("../fonts/Nippo-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nippo";
+  src: url("../fonts/Nippo-Medium.woff2") format("woff2"),
+    url("../fonts/Nippo-Medium.woff") format("woff"),
+    url("../fonts/Nippo-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nippo";
+  src: url("../fonts/Nippo-Bold.woff2") format("woff2"),
+    url("../fonts/Nippo-Bold.woff") format("woff"),
+    url("../fonts/Nippo-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

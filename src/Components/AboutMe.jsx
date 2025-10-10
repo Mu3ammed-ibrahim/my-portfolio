@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Logo from "../assets/Icons/my avatar.png"
+import Logo from "../assets/Icons/my avatar.png";
 import { Github, Linkedin, LucideInstagram, Mail } from "lucide-react";
 
 const AboutMe = () => {
@@ -13,7 +13,7 @@ const AboutMe = () => {
   const [ref, inView] = useInView({
     threshold: 0.3,
   });
-  
+
   const controls = useAnimation();
 
   // Trigger animations whenever component comes into view
@@ -193,7 +193,7 @@ const AboutMe = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
@@ -201,24 +201,28 @@ const AboutMe = () => {
                 >
                   Hello! I'm{" "}
                   <span className="font-semibold">Mohammed Ibrahim</span>, a
-                  final-year Mechatronics Engineering student with a growing
-                  passion for front-end development. Since beginning my coding
-                  journey in 2022, I've been bridging the gap between
-                  engineering principles and web development, creating intuitive
-                  and functional digital experiences.
+                  Front-End Developer skilled in HTML, CSS, JavaScript,
+                  React.js, Tailwind CSS, Redux Toolkit, and Next.js. With a
+                  background in Mechatronics Engineering, I bring a strong
+                  problem-solving mindset to creating responsive, accessible,
+                  and visually appealing web applications.
                 </motion.p>
 
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="text-lg text-white mb-6"
                 >
-                  Through self-teaching and practical experience, I've evolved
-                  from building basic applications to developing comprehensive
-                  e-commerce platforms. I enjoy applying my engineering mindset
-                  to solve web development challenges, particularly in creating
-                  responsive, user-centered designs.
+                  I’ve built projects like E-shop (e-commerce), Watchly (movie
+                  app), and Trackify (finance tracker) that demonstrate my
+                  ability to design and develop modern, user-focused interfaces.
+                  I also hold multiple Meta Front-End Developer certifications
+                  covering Advanced React, Responsive Design, and UI/UX
+                  Principles, reflecting my commitment to continuous learning
+                  and professional growth. I’m passionate about crafting
+                  high-quality digital experiences that combine clean design,
+                  performance, and functionality.
                 </motion.p>
               </motion.div>
             )}
@@ -231,7 +235,7 @@ const AboutMe = () => {
                 transition={{ duration: 0.5 }}
                 className="space-y-8"
               >
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
@@ -245,9 +249,10 @@ const AboutMe = () => {
                       KreativeStorm Company | 2024
                     </p>
                     <ul className="mt-2 text-gray-300 pl-5 list-disc">
-                      {["Collaborated with a development team to build an interactive shopping store",
+                      {[
+                        "Collaborated with a development team to build an interactive shopping store",
                         "Developed interactive web games including a jumping man game",
-                        "Created responsive calculator application using HTML, CSS and JavaScript"
+                        "Created responsive calculator application using HTML, CSS and JavaScript",
                       ].map((item, i) => (
                         <motion.li
                           key={i}
@@ -268,10 +273,11 @@ const AboutMe = () => {
                     </h4>
                     <p className="text-sm text-gray-400">2022 - Present</p>
                     <ul className="mt-2 text-gray-300 pl-5 list-disc">
-                      {["Built a comprehensive e-commerce application",
-                        "Developed a advance weather app using React",
-                        "Created an interactive travel application with React",
-                        "Designed and implemented a weather app and calculator using vanilla JavaScript"
+                      {[
+                        "Built a Fullstack Expanse tracker dashboard using Next js, Redux, Tailwind css and Supabase ",
+                        "Developed a Movie library using React , Tailwind CSS and Redux toolkit",
+                        "Desgined and developed a Restruant website using Figma , React and Css ",
+                        "Designed and implemented a weather app and calculator using vanilla JavaScript",
                       ].map((item, i) => (
                         <motion.li
                           key={i}
@@ -296,7 +302,7 @@ const AboutMe = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <motion.h3 
+                <motion.h3
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
@@ -325,11 +331,11 @@ const AboutMe = () => {
                       custom={index}
                       variants={{
                         hidden: { opacity: 0, y: 20 },
-                        visible: i => ({
+                        visible: (i) => ({
                           opacity: 1,
                           y: 0,
-                          transition: { delay: i * 0.1, duration: 0.4 }
-                        })
+                          transition: { delay: i * 0.1, duration: 0.4 },
+                        }),
                       }}
                       initial="hidden"
                       animate="visible"
@@ -341,7 +347,7 @@ const AboutMe = () => {
                   ))}
                 </div>
 
-                <motion.h3 
+                <motion.h3
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.3 }}
