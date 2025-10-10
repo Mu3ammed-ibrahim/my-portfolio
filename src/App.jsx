@@ -9,7 +9,7 @@ import './App.css'
 function App() {
 
   return (
-    <div className="bg-[url('/src/assets/ttten.svg')] bg-cover bg-center h-100vh bg-zinc-900" >
+    <div className="  bg-zinc-900" >
       <Navbar/>
       <Hero/>
       <Technologies/>

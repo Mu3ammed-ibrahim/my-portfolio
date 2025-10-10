@@ -10,6 +10,7 @@ import FramerIcon from "../assets/Icons/framer-motion-logo-png_seeklogo-446185 (
 import ReduxIcon from "../assets/Icons/Redux.png";
 import TailwindcssIcon from "../assets/Icons/tailwind-css-seeklogo.png";
 import SupabaseIcon from "../assets/Icons/Supabase.png";
+import FigmaIcon from "../assets/Icons/Figma logo.png";
 import BootsrapIcon from "../assets/Icons/bootstrap.png";
 
 import { motion } from "framer-motion";
@@ -28,6 +29,7 @@ const technologies = [
   { name: "Bootstrap", icon: BootsrapIcon },  
   { name: "Redux", icon: ReduxIcon },
   { name: "Supabase", icon: SupabaseIcon },
+  { name: "Figma", icon: FigmaIcon },
 ];
 
 // Duplicate the technologies array to create a seamless loop effect

@@ -6,7 +6,14 @@ import ProjectImage3 from "../assets/Projects/Mega store.png";
 import ProjectImage4 from "../assets/Projects/portfolio app.png";
 import ProjectImage5 from "../assets/Projects/watchly.png";
 import ProjectImage6 from "../assets/Projects/Trackify.png";
+import Certification1 from "../assets/Certifications/Advanced React.png"
+import Certification2 from "../assets/Certifications/Capsone Project.png"
+import Certification3 from "../assets/Certifications/Html and Css.png"
+import Certification4 from "../assets/Certifications/Programming with Javascript.png"
+import Certification5 from "../assets/Certifications/UXUI DESIGN.png"
+import Certification6 from "../assets/Certifications/React Basics.png"
 import { useInView } from "react-intersection-observer";
+import { Code2, Award, Palette, ExternalLink, Github } from "lucide-react";
 
 const projectsData = [
   {
@@ -65,27 +72,104 @@ const projectsData = [
   }
 ];
 
+// Placeholder data for certifications and designs
+// Add your certification images in the assets folder and import them
+const certificationsData = [
+  {
+    id: 1,
+    title: "Frontend Developer Capsone project",
+    issuer: "Coursera",
+    date: "2025",
+    image: Certification2 , // Replace with your image path
+    credentialUrl: "#",
+  },
+  {
+    id: 2,
+    title: "React Advanced ",
+    issuer: "coursera",
+    date: "2025",
+    image: Certification1, // Replace with your image path
+    credentialUrl: "#",
+  },
+  {
+    id: 3,
+    title: "Princeples Of UX/UI Design ",
+    issuer: "Coursera",
+    date: "2025",
+    image: Certification5 , // Replace with your image path
+    credentialUrl: "#",
+  },
+  {
+    id: 4,
+    title: "Programming with Javascript ",
+    issuer: "Coursera",
+    date: "2025",
+    image: Certification4, // Replace with your image path
+    credentialUrl: "#",
+  },
+  {
+    id: 5,
+    title: "Html and Css ",
+    issuer: "Coursera",
+    date: "2025",
+    image: Certification3 , // Replace with your image path
+    credentialUrl: "#",
+  },
+  {
+    id: 6,
+    title: "React Basics ",
+    issuer: "Coursera",
+    date: "2025",
+    image: Certification6 , // Replace with your image path
+    credentialUrl: "#",
+  },
+];
+
+const designsData = [
+  {
+    id: 1,
+    title: "E-commerce UI Kit",
+    description: "Complete UI design system for modern e-commerce platforms with 50+ components.",
+    tool: "Figma",
+    link: "#",
+  },
+  {
+    id: 2,
+    title: "Mobile Banking App",
+    description: "Sleek and intuitive mobile banking interface with focus on user experience.",
+    tool: "Adobe XD",
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "SaaS Dashboard Design",
+    description: "Analytics dashboard with data visualization and modern dark mode interface.",
+    tool: "Figma",
+    link: "#",
+  },
+];
+
 export default function Projects() {
-  // Track which project overlay is active (for mobile)
   const [activeProject, setActiveProject] = useState(null);
+  const [activeTab, setActiveTab] = useState("projects");
   
-  // Animation controls setup
   const controls = useAnimation();
   const [ref, inView] = useInView({
-    threshold: 0.2,
-    // Removed triggerOnce to allow animations to replay
+    threshold: 0.1,
+    triggerOnce: false,
   });
 
-  // Trigger animations when component comes into view
   useEffect(() => {
     if (inView) {
       controls.start("visible");
-    } else {
-      controls.start("hidden");
     }
   }, [controls, inView]);
 
-  // Animation variants for heading section
+  // Reset and trigger animations when tab changes
+  useEffect(() => {
+    controls.start("visible");
+  }, [activeTab, controls]);
+
   const headingVariants = {
     hidden: { opacity: 0, y: -30 },
     visible: {
@@ -98,7 +182,6 @@ export default function Projects() {
     }
   };
 
-  // Animation variants for projects grid
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -110,7 +193,6 @@ export default function Projects() {
     }
   };
 
-  // Animation variants for individual project cards
   const projectVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -123,7 +205,6 @@ export default function Projects() {
     }
   };
 
-  // Toggle project overlay
   const toggleProjectOverlay = (projectId) => {
     if (activeProject === projectId) {
       setActiveProject(null);
@@ -132,104 +213,264 @@ export default function Projects() {
     }
   };
 
+  const tabs = [
+    { id: "projects", label: "Projects", icon: Code2 },
+    { id: "certifications", label: "Certifications", icon: Award },
+    { id: "designs", label: "Designs", icon: Palette },
+  ];
+
   return (
-    <section id="projects" className="py-20 text-white bg-zinc-900">
+    <section id="projects" className="relative py-20 text-white overflow-hidden bg-zinc-900">
+      {/* Animated Background Gradient */}
+      <div className="absolute inset-0 -z-10">
+        <motion.div
+          className="absolute inset-0"
+          animate={{
+            background: [
+              "radial-gradient(circle at 30% 40%, rgba(16, 185, 129, 0.08) 0%, transparent 50%)",
+              "radial-gradient(circle at 70% 60%, rgba(16, 185, 129, 0.08) 0%, transparent 50%)",
+              "radial-gradient(circle at 30% 40%, rgba(16, 185, 129, 0.08) 0%, transparent 50%)",
+            ],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-emerald-500/5 to-teal-500/5" />
+      </div>
+
       <div 
         ref={ref}
-        className="container px-4 mx-auto"
+        className="container relative z-10 px-4 mx-auto"
       >
+        {/* Header */}
         <motion.div 
           initial="hidden"
           animate={controls}
           variants={headingVariants}
-          className="mb-12 text-center"
+          className="mb-8 text-center"
         >
-          <h2 className="text-4xl font-bold text-green-700">My Projects</h2>
-          <p className="mt-2 text-lg text-gray-300">
-            Check out some of my recent work
+          <h2 className="text-4xl font-bold text-green-700 md:text-5xl lg:text-6xl">
+            Portfolio Showcase
+          </h2>
+          <p className="mt-4 text-lg text-gray-300 md:text-xl max-w-3xl mx-auto">
+            Explore my journey through projects, certifications, and functional designs. Each section represents a milestone in my continued learning path.
           </p>
         </motion.div>
 
-        {/* Project Grid */}
+        {/* Tabs */}
         <motion.div
-          variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          variants={headingVariants}
+          className="flex flex-wrap justify-center gap-4 mb-12"
         >
-          {projectsData.map((project) => (
-            <motion.div
-              key={project.id}
-              variants={projectVariants}
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden shadow-lg bg-zinc-800 rounded-xl"
-            >
-              <motion.div 
-                className="relative h-48 overflow-hidden"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => toggleProjectOverlay(project.id)}
+          {tabs.map((tab) => {
+            const Icon = tab.icon;
+            return (
+              <motion.button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className={`flex items-center gap-2 px-6 py-3 font-semibold rounded-full transition-all duration-300 ${
+                  activeTab === tab.id
+                    ? "bg-green-700 text-white shadow-lg shadow-green-700/50"
+                    : "bg-zinc-800/70 text-gray-300 hover:bg-zinc-700/70 backdrop-blur-sm border border-zinc-700/50"
+                }`}
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="object-cover w-full h-full"
-                />
-                <motion.div 
-                  className={`absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center gap-4 transition duration-300 ${
-                    activeProject === project.id ? 'opacity-100' : 'opacity-0 hover:opacity-100'
-                  }`}
-                >
-                  <motion.a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 text-sm text-white bg-green-600 rounded-full"
-                    whileHover={{ scale: 1.1, backgroundColor: "#16a34a" }}
-                    whileTap={{ scale: 0.95 }}
-                    // Stop propagation to prevent toggling the overlay when clicking links
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    Live Demo
-                  </motion.a>
-                  <motion.a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 text-sm text-white bg-green-600 rounded-full"
-                    whileHover={{ scale: 1.1, backgroundColor: "#16a34a" }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    GitHub
-                  </motion.a>
-                </motion.div>
-              </motion.div>
-
-              <div className="p-6">
-                <h3 className="mb-2 text-xl font-semibold text-green-400">
-                  {project.title}
-                </h3>
-                <p className="mb-4 text-gray-300">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, index) => (
-                    <motion.span
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.1, duration: 0.3 }}
-                      whileHover={{ scale: 1.1, backgroundColor: "#166534" }}
-                      className="px-2 py-1 text-xs text-gray-200 rounded-full bg-zinc-700"
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                <Icon size={20} />
+                <span>{tab.label}</span>
+              </motion.button>
+            );
+          })}
         </motion.div>
+
+        {/* Projects Tab Content */}
+        {activeTab === "projects" && (
+          <motion.div
+            key="projects-content"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {projectsData.map((project) => (
+              <motion.div
+                key={project.id}
+                variants={projectVariants}
+                whileHover={{ y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden border shadow-lg bg-zinc-800/50 backdrop-blur-sm rounded-xl border-zinc-700/50 hover:border-green-700/50 hover:shadow-xl hover:shadow-green-700/20"
+              >
+                <motion.div 
+                  className="relative h-48 overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  onClick={() => toggleProjectOverlay(project.id)}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="object-cover w-full h-full"
+                  />
+                  <motion.div 
+                    className={`absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center gap-4 transition duration-300 ${
+                      activeProject === project.id ? 'opacity-100' : 'opacity-0 hover:opacity-100'
+                    }`}
+                  >
+                    <motion.a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 text-sm text-white bg-green-600 rounded-full"
+                      whileHover={{ scale: 1.1, backgroundColor: "#16a34a" }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <ExternalLink size={16} />
+                      Live Demo
+                    </motion.a>
+                    <motion.a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 text-sm text-white bg-green-600 rounded-full"
+                      whileHover={{ scale: 1.1, backgroundColor: "#16a34a" }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Github size={16} />
+                      GitHub
+                    </motion.a>
+                  </motion.div>
+                </motion.div>
+
+                <div className="p-6">
+                  <h3 className="mb-2 text-xl font-semibold text-green-400">
+                    {project.title}
+                  </h3>
+                  <p className="mb-4 text-gray-300 text-sm leading-relaxed">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, index) => (
+                      <motion.span
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: index * 0.05, duration: 0.3 }}
+                        whileHover={{ scale: 1.05 }}
+                        className="px-3 py-1 text-xs font-medium border rounded-full bg-green-700/10 text-green-400 border-green-700/30"
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+
+        {/* Certifications Tab Content */}
+        {activeTab === "certifications" && (
+          <motion.div
+            key="certifications-content"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {certificationsData.map((cert, index) => (
+              <motion.div
+                key={cert.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="overflow-hidden border shadow-lg bg-zinc-800/50 backdrop-blur-sm rounded-xl border-zinc-700/50 hover:border-green-700/50 hover:shadow-xl hover:shadow-green-700/20"
+              >
+                {/* Certificate Image */}
+                <div className="relative h-48 overflow-hidden bg-zinc-900">
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+
+                <div className="p-6">
+                  <h3 className="mb-2 text-xl font-bold text-green-400">
+                    {cert.title}
+                  </h3>
+                  <p className="mb-1 text-sm text-gray-300">{cert.issuer}</p>
+                  <p className="mb-4 text-xs text-gray-500">{cert.date}</p>
+
+                  <motion.a
+                    href={cert.credentialUrl}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-2 text-sm text-green-400 transition-colors hover:text-green-300"
+                  >
+                    <ExternalLink size={16} />
+                    View Credential
+                  </motion.a>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+
+        {/* Designs Tab Content */}
+        {activeTab === "designs" && (
+          <motion.div
+            key="designs-content"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {designsData.map((design, index) => (
+              <motion.div
+                key={design.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="overflow-hidden border shadow-lg bg-zinc-800/50 backdrop-blur-sm rounded-xl border-zinc-700/50 hover:border-green-700/50 hover:shadow-xl hover:shadow-green-700/20"
+              >
+                <div className="relative flex items-center justify-center h-48 overflow-hidden bg-gradient-to-br from-green-900/20 to-emerald-900/20">
+                  <Palette className="text-green-700/40" size={64} />
+                </div>
+
+                <div className="p-6">
+                  <h3 className="mb-2 text-xl font-bold text-green-400">
+                    {design.title}
+                  </h3>
+                  <p className="mb-4 text-sm leading-relaxed text-gray-300">
+                    {design.description}
+                  </p>
+
+                  <div className="flex items-center justify-between">
+                    <span className="px-3 py-1 text-xs font-medium border rounded-full bg-green-700/10 text-green-400 border-green-700/30">
+                      {design.tool}
+                    </span>
+                    <motion.a
+                      href={design.link}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center gap-2 text-sm text-green-400 transition-colors hover:text-green-300"
+                    >
+                      <ExternalLink size={16} />
+                      View
+                    </motion.a>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
       </div>
     </section>
   );
