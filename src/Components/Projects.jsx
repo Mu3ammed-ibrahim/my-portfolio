@@ -128,8 +128,8 @@ const certificationsData = [
 const designsData = [
   {
     id: 1,
-    title: "E-commerce UI Kit",
-    description: "Complete UI design system for modern e-commerce platforms with 50+ components.",
+    title: "Little Lemon Restruant",
+    description: "Designed a modern and vibrant restaurant website with a focus on user experience.",
     tool: "Figma",
     link: "#",
   },
@@ -140,13 +140,7 @@ const designsData = [
     tool: "Adobe XD",
     link: "#",
   },
-  {
-    id: 3,
-    title: "SaaS Dashboard Design",
-    description: "Analytics dashboard with data visualization and modern dark mode interface.",
-    tool: "Figma",
-    link: "#",
-  },
+
 ];
 
 export default function Projects() {
