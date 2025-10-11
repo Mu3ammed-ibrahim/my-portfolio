@@ -81,7 +81,7 @@ const ContactMe = () => {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-green-600 mb-3"
+            className="text-4xl md:text-5xl font-bold text-green-500 mb-3"
           >
             Contact Me
           </motion.h2>

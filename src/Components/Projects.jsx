@@ -246,7 +246,7 @@ export default function Projects() {
           variants={headingVariants}
           className="mb-8 text-center"
         >
-          <h2 className="text-4xl font-bold text-green-700 md:text-5xl lg:text-6xl">
+          <h2 className="text-4xl font-bold text-green-500 md:text-5xl lg:text-6xl">
             Portfolio Showcase
           </h2>
           <p className="mt-4 text-lg text-gray-300 md:text-xl max-w-3xl mx-auto">
