@@ -55,7 +55,7 @@ const Hero = () => {
           >
             <Button>
               <a
-                href="/Mohammed Almuatsim Ibrahim Gallab RESUME.pdf"
+                href="/Mohammed Almuatsim Ibrahim V0-Resume.pdf.pdf"
                 download="Mohammed Almuatsim Ibrahim Gallab RESUME"
                 rel="noopener noreferrer"
               >
