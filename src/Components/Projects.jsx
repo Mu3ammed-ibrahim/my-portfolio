@@ -7,11 +7,11 @@ import ProjectImage4 from "../assets/Projects/portfolio app.png";
 import ProjectImage5 from "../assets/Projects/watchly.png";
 import ProjectImage6 from "../assets/Projects/Trackify.png";
 import Certification1 from "../assets/Certifications/Advanced React.png"
-import Certification2 from "../assets/Certifications/Capsone Project.png"
 import Certification3 from "../assets/Certifications/Html and Css.png"
 import Certification4 from "../assets/Certifications/Programming with Javascript.png"
 import Certification5 from "../assets/Certifications/UXUI DESIGN.png"
 import Certification6 from "../assets/Certifications/React Basics.png"
+import Certification7 from "../assets/Certifications/Meta Frontend Developer Certification.png"
 import { useInView } from "react-intersection-observer";
 import { Code2, Award, Palette, ExternalLink, Github } from "lucide-react";
 
@@ -77,10 +77,10 @@ const projectsData = [
 const certificationsData = [
   {
     id: 1,
-    title: "Frontend Developer Capsone project",
+    title: "Meta Frontend Developer Certification ",
     issuer: "Coursera",
     date: "2025",
-    image: Certification2 , // Replace with your image path
+    image: Certification7 , // Replace with your image path
     credentialUrl: "#",
   },
   {
@@ -214,7 +214,7 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="relative py-20 text-white overflow-hidden bg-zinc-900">
+    <section id="projects" className="relative py-20 overflow-hidden text-white bg-zinc-900">
       {/* Animated Background Gradient */}
       <div className="absolute inset-0 -z-10">
         <motion.div
@@ -249,7 +249,7 @@ export default function Projects() {
           <h2 className="text-4xl font-bold text-green-500 md:text-5xl lg:text-6xl">
             Portfolio Showcase
           </h2>
-          <p className="mt-4 text-lg text-gray-300 md:text-xl max-w-3xl mx-auto">
+          <p className="max-w-3xl mx-auto mt-4 text-lg text-gray-300 md:text-xl">
             Explore my journey through projects, certifications, and functional designs. Each section represents a milestone in my continued learning path.
           </p>
         </motion.div>
@@ -346,7 +346,7 @@ export default function Projects() {
                   <h3 className="mb-2 text-xl font-semibold text-green-400">
                     {project.title}
                   </h3>
-                  <p className="mb-4 text-gray-300 text-sm leading-relaxed">{project.description}</p>
+                  <p className="mb-4 text-sm leading-relaxed text-gray-300">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, index) => (
                       <motion.span
@@ -355,7 +355,7 @@ export default function Projects() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: index * 0.05, duration: 0.3 }}
                         whileHover={{ scale: 1.05 }}
-                        className="px-3 py-1 text-xs font-medium border rounded-full bg-green-700/10 text-green-400 border-green-700/30"
+                        className="px-3 py-1 text-xs font-medium text-green-400 border rounded-full bg-green-700/10 border-green-700/30"
                       >
                         {tech}
                       </motion.span>
@@ -447,7 +447,7 @@ export default function Projects() {
                   </p>
 
                   <div className="flex items-center justify-between">
-                    <span className="px-3 py-1 text-xs font-medium border rounded-full bg-green-700/10 text-green-400 border-green-700/30">
+                    <span className="px-3 py-1 text-xs font-medium text-green-400 border rounded-full bg-green-700/10 border-green-700/30">
                       {design.tool}
                     </span>
                     <motion.a

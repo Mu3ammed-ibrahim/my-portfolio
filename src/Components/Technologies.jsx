@@ -12,6 +12,8 @@ import TailwindcssIcon from "../assets/Icons/tailwind-css-seeklogo.png";
 import SupabaseIcon from "../assets/Icons/Supabase.png";
 import FigmaIcon from "../assets/Icons/Figma logo.png";
 import BootsrapIcon from "../assets/Icons/bootstrap.png";
+import Vercel from "../assets/Icons/Vercel.png";
+import Gsap from "../assets/Icons/Gsap.webp";  
 
 import { motion } from "framer-motion";
 
@@ -30,6 +32,8 @@ const technologies = [
   { name: "Redux", icon: ReduxIcon },
   { name: "Supabase", icon: SupabaseIcon },
   { name: "Figma", icon: FigmaIcon },
+  { name: "Vercel", icon: Vercel },
+  { name: "GSAP", icon: Gsap },
 ];
 
 // Duplicate the technologies array to create a seamless loop effect

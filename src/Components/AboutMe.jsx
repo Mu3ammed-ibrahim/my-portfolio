@@ -82,26 +82,26 @@ const AboutMe = () => {
         initial="hidden"
         animate={controls}
         variants={containerVariants}
-        className="max-w-5xl mx-auto px-6"
+        className="max-w-5xl px-6 mx-auto"
       >
         <motion.div
           variants={itemVariants}
-          className="flex flex-col md:flex-row gap-12 items-start"
+          className="flex flex-col items-start gap-12 md:flex-row"
         >
           {/* Profile Image */}
           <motion.div
             variants={itemVariants}
-            className="w-full md:w-1/3 flex flex-col items-center"
+            className="flex flex-col items-center w-full md:w-1/3"
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              className="relative w-64 h-64 rounded-full overflow-hidden mb-6 shadow-xl border-4 border-green-700"
+              className="relative w-64 h-64 mb-6 overflow-hidden border-4 border-green-700 rounded-full shadow-xl"
             >
               <img
                 src={Logo}
                 alt="Mohammed Ibrahim"
-                className="w-full h-full object-cover"
+                className="object-cover w-full h-full"
               />
             </motion.div>
 
@@ -144,13 +144,13 @@ const AboutMe = () => {
           <motion.div variants={itemVariants} className="w-full md:w-2/3">
             <motion.h2
               variants={itemVariants}
-              className="text-3xl font-bold mb-5 text-green-600"
+              className="mb-5 text-3xl font-bold text-green-600"
             >
               About Me
             </motion.h2>
 
             {/* Tab Navigation */}
-            <div className="flex border-b border-zinc-700 mb-6">
+            <div className="flex mb-6 border-b border-zinc-700">
               <motion.button
                 onClick={() => setActiveTab("about")}
                 whileHover={{ y: -2 }}
@@ -173,17 +173,6 @@ const AboutMe = () => {
               >
                 Experience
               </motion.button>
-              <motion.button
-                onClick={() => setActiveTab("skills")}
-                whileHover={{ y: -2 }}
-                className={`py-2 px-4 font-medium ${
-                  activeTab === "skills"
-                    ? "text-green-500 border-b-2 border-green-500"
-                    : "text-white hover:text-green-400"
-                }`}
-              >
-                Skills
-              </motion.button>
             </div>
 
             {/* About Tab Content */}
@@ -197,7 +186,7 @@ const AboutMe = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="text-lg text-white mb-6"
+                  className="mb-6 text-lg text-white"
                 >
                   Hello! I'm{" "}
                   <span className="font-semibold">Mohammed Ibrahim</span>, a
@@ -212,7 +201,7 @@ const AboutMe = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="text-lg text-white mb-6"
+                  className="mb-6 text-lg text-white"
                 >
                   I’ve built projects like E-shop (e-commerce), Watchly (movie
                   app), and Trackify (finance tracker) that demonstrate my
@@ -239,16 +228,16 @@ const AboutMe = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="mb-8 bg-zinc-800 p-6 rounded-lg shadow-sm border border-zinc-700"
+                  className="p-6 mb-8 border rounded-lg shadow-sm bg-zinc-800 border-zinc-700"
                 >
-                  <div className="mb-4 pb-4 border-b border-zinc-700">
+                  <div className="pb-4 mb-4 border-b border-zinc-700">
                     <h4 className="font-medium text-white">
                       Front-end Development Intern
                     </h4>
                     <p className="text-sm text-gray-400">
                       KreativeStorm Company | 2024
                     </p>
-                    <ul className="mt-2 text-gray-300 pl-5 list-disc">
+                    <ul className="pl-5 mt-2 text-gray-300 list-disc">
                       {[
                         "Collaborated with a development team to build an interactive shopping store",
                         "Developed interactive web games including a jumping man game",
@@ -272,7 +261,7 @@ const AboutMe = () => {
                       Self-Driven Projects
                     </h4>
                     <p className="text-sm text-gray-400">2022 - Present</p>
-                    <ul className="mt-2 text-gray-300 pl-5 list-disc">
+                    <ul className="pl-5 mt-2 text-gray-300 list-disc">
                       {[
                         "Built a Fullstack Expanse tracker dashboard using Next js, Redux, Tailwind css and Supabase ",
                         "Developed a Movie library using React , Tailwind CSS and Redux toolkit",
@@ -292,84 +281,6 @@ const AboutMe = () => {
                     </ul>
                   </div>
                 </motion.div>
-              </motion.div>
-            )}
-
-            {/* Skills Tab Content */}
-            {activeTab === "skills" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <motion.h3
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-xl font-semibold mb-4 text-green-700"
-                >
-                  Technical Skills
-                </motion.h3>
-
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
-                  {[
-                    "React Js",
-                    "Next Js",
-                    "Redux",
-                    "Redux toolkit",
-                    "Semantic Html",
-                    "Css",
-                    "Javascript",
-                    "Bootstrap",
-                    "Git&GItub",
-                    "Tailwind CSS",
-                    "Framer motion",
-                    "netlify",
-                  ].map((skill, index) => (
-                    <motion.div
-                      key={skill}
-                      custom={index}
-                      variants={{
-                        hidden: { opacity: 0, y: 20 },
-                        visible: (i) => ({
-                          opacity: 1,
-                          y: 0,
-                          transition: { delay: i * 0.1, duration: 0.4 },
-                        }),
-                      }}
-                      initial="hidden"
-                      animate="visible"
-                      whileHover={{ scale: 1.05, backgroundColor: "#16a34a" }}
-                      className="py-2 px-4 bg-green-700 rounded-lg shadow-sm text-center text-white"
-                    >
-                      {skill}
-                    </motion.div>
-                  ))}
-                </div>
-
-                <motion.h3
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.3 }}
-                  className="text-xl font-semibold mt-8 mb-4 text-green-700"
-                >
-                  Currently Learning
-                </motion.h3>
-
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
-                  {["TypeScript"].map((skill, index) => (
-                    <motion.div
-                      key={skill}
-                      variants={skillVariants}
-                      initial="hidden"
-                      animate="visible"
-                      whileHover={{ scale: 1.05, backgroundColor: "#16a34a" }}
-                      className="py-2 px-4 bg-green-700 rounded-lg shadow-sm text-center text-white"
-                    >
-                      {skill}
-                    </motion.div>
-                  ))}
-                </div>
               </motion.div>
             )}
           </motion.div>
