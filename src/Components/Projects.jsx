@@ -6,6 +6,7 @@ import ProjectImage3 from "../assets/Projects/Mega store.png";
 import ProjectImage4 from "../assets/Projects/portfolio app.png";
 import ProjectImage5 from "../assets/Projects/watchly.png";
 import ProjectImage6 from "../assets/Projects/Trackify.png";
+import ProjectImage7 from "../assets/Projects/GameZone.png";
 import Certification1 from "../assets/Certifications/Advanced React.png"
 import Certification3 from "../assets/Certifications/Html and Css.png"
 import Certification4 from "../assets/Certifications/Programming with Javascript.png"
@@ -16,6 +17,15 @@ import { useInView } from "react-intersection-observer";
 import { Code2, Award, Palette, ExternalLink, Github } from "lucide-react";
 
 const projectsData = [
+  {
+    id: 7,
+    title: "GameZone",
+    description: "A fully responsive gaming store landing page.",
+    technologies: ["React","Vite" ,"Shadcn","React Router", "Gsap", "Tailwind CSS"],
+    image: ProjectImage7,
+    link: "https://game-zone-orpin-eta.vercel.app/",
+    github: "https://github.com/Mu3ammed-ibrahim/GameZone",
+  },
   {
     id: 6,
     title: "Trackify",
