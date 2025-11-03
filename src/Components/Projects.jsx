@@ -6,13 +6,13 @@ import ProjectImage3 from "../assets/Projects/Mega store.png";
 import ProjectImage4 from "../assets/Projects/portfolio app.png";
 import ProjectImage5 from "../assets/Projects/watchly.png";
 import ProjectImage6 from "../assets/Projects/Trackify.png";
-import ProjectImage7 from "../assets/Projects/GameZone.png";
-import Certification1 from "../assets/Certifications/Advanced React.png"
-import Certification3 from "../assets/Certifications/Html and Css.png"
-import Certification4 from "../assets/Certifications/Programming with Javascript.png"
-import Certification5 from "../assets/Certifications/UXUI DESIGN.png"
-import Certification6 from "../assets/Certifications/React Basics.png"
-import Certification7 from "../assets/Certifications/Meta Frontend Developer Certification.png"
+import ProjectImage7 from "../assets/Projects/Gamezone.png";
+import Certification1 from "../assets/Certifications/Advanced React.png";
+import Certification3 from "../assets/Certifications/Html and Css.png";
+import Certification4 from "../assets/Certifications/Programming with Javascript.png";
+import Certification5 from "../assets/Certifications/UXUI DESIGN.png";
+import Certification6 from "../assets/Certifications/React Basics.png";
+import Certification7 from "../assets/Certifications/Meta Frontend Developer Certification.png";
 import { useInView } from "react-intersection-observer";
 import { Code2, Award, Palette, ExternalLink, Github } from "lucide-react";
 
@@ -21,7 +21,14 @@ const projectsData = [
     id: 7,
     title: "GameZone",
     description: "A fully responsive gaming store landing page.",
-    technologies: ["React","Vite" ,"Shadcn","React Router", "Gsap", "Tailwind CSS"],
+    technologies: [
+      "React",
+      "Vite",
+      "Shadcn",
+      "React Router",
+      "Gsap",
+      "Tailwind CSS",
+    ],
     image: ProjectImage7,
     link: "https://game-zone-orpin-eta.vercel.app/",
     github: "https://github.com/Mu3ammed-ibrahim/GameZone",
@@ -29,8 +36,18 @@ const projectsData = [
   {
     id: 6,
     title: "Trackify",
-    description: "Trackify is a modern, responsive expense tracking web application built to help users manage their personal finances with ease. ",
-    technologies: ["Next js","React", "Tailwind CSS", "Framer Motion","Redux Toolkit","Supabase","Semantic Html","Rechart"],
+    description:
+      "Trackify is a modern, responsive expense tracking web application built to help users manage their personal finances with ease. ",
+    technologies: [
+      "Next js",
+      "React",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Redux Toolkit",
+      "Supabase",
+      "Semantic Html",
+      "Rechart",
+    ],
     image: ProjectImage6,
     link: " https://lnkd.in/dK52KphC",
     github: "https://github.com/Mu3ammed-ibrahim/Trackify",
@@ -39,7 +56,14 @@ const projectsData = [
     id: 5,
     title: "Watchly",
     description: "A web application for watching movies and TV shows.",
-    technologies: ["React", "Tailwind CSS", "Framer Motion","Redux Toolkit","React Router","Semantic Html"],
+    technologies: [
+      "React",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Redux Toolkit",
+      "React Router",
+      "Semantic Html",
+    ],
     image: ProjectImage5,
     link: "https://watchly-m.netlify.app/",
     github: "https://github.com/Mu3ammed-ibrahim/watchly",
@@ -47,7 +71,8 @@ const projectsData = [
   {
     id: 1,
     title: "E-Commerce Platform",
-    description: "A fully responsive e-commerce web application showcasing advanced front-end skills.",
+    description:
+      "A fully responsive e-commerce web application showcasing advanced front-end skills.",
     technologies: ["React", "React Router", "Framer Motion", "Tailwind CSS"],
     image: ProjectImage1,
     link: "https://ecommerce-app-eshop.netlify.app",
@@ -56,7 +81,8 @@ const projectsData = [
   {
     id: 4,
     title: "Portfolio Website",
-    description: "My personal portfolio to showcase projects and skills with a modern look.",
+    description:
+      "My personal portfolio to showcase projects and skills with a modern look.",
     technologies: ["React", "Tailwind CSS", "Framer Motion"],
     image: ProjectImage4,
     link: "#",
@@ -65,7 +91,8 @@ const projectsData = [
   {
     id: 2,
     title: "Jumping Dinasour Game",
-    description: "A game where the player jumps obstacles using CSS keyframe animation.",
+    description:
+      "A game where the player jumps obstacles using CSS keyframe animation.",
     technologies: ["HTML", "CSS", "JavaScript"],
     image: ProjectImage2,
     link: "https://mu3ammed-ibrahim.github.io/Jumping-man",
@@ -74,12 +101,13 @@ const projectsData = [
   {
     id: 3,
     title: "Simple Online Store",
-    description: "Multi-page website for Mega-Store built with clean HTML/CSS and some JavaScript.",
+    description:
+      "Multi-page website for Mega-Store built with clean HTML/CSS and some JavaScript.",
     technologies: ["HTML", "CSS", "JavaScript"],
     image: ProjectImage3,
     link: "https://kevinstaresdarbon.github.io/css-project/index.html",
     github: "https://github.com/Mu3ammed-ibrahim/css-project",
-  }
+  },
 ];
 
 // Placeholder data for certifications and designs
@@ -90,7 +118,7 @@ const certificationsData = [
     title: "Meta Frontend Developer Certification ",
     issuer: "Coursera",
     date: "2025",
-    image: Certification7 , // Replace with your image path
+    image: Certification7, // Replace with your image path
     credentialUrl: "#",
   },
   {
@@ -106,7 +134,7 @@ const certificationsData = [
     title: "Princeples Of UX/UI Design ",
     issuer: "Coursera",
     date: "2025",
-    image: Certification5 , // Replace with your image path
+    image: Certification5, // Replace with your image path
     credentialUrl: "#",
   },
   {
@@ -122,7 +150,7 @@ const certificationsData = [
     title: "Html and Css ",
     issuer: "Coursera",
     date: "2025",
-    image: Certification3 , // Replace with your image path
+    image: Certification3, // Replace with your image path
     credentialUrl: "#",
   },
   {
@@ -130,7 +158,7 @@ const certificationsData = [
     title: "React Basics ",
     issuer: "Coursera",
     date: "2025",
-    image: Certification6 , // Replace with your image path
+    image: Certification6, // Replace with your image path
     credentialUrl: "#",
   },
 ];
@@ -139,24 +167,25 @@ const designsData = [
   {
     id: 1,
     title: "Little Lemon Restruant",
-    description: "Designed a modern and vibrant restaurant website with a focus on user experience.",
+    description:
+      "Designed a modern and vibrant restaurant website with a focus on user experience.",
     tool: "Figma",
     link: "#",
   },
   {
     id: 2,
     title: "Mobile Banking App",
-    description: "Sleek and intuitive mobile banking interface with focus on user experience.",
+    description:
+      "Sleek and intuitive mobile banking interface with focus on user experience.",
     tool: "Adobe XD",
     link: "#",
   },
-
 ];
 
 export default function Projects() {
   const [activeProject, setActiveProject] = useState(null);
   const [activeTab, setActiveTab] = useState("projects");
-  
+
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -181,9 +210,9 @@ export default function Projects() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const containerVariants = {
@@ -192,9 +221,9 @@ export default function Projects() {
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   };
 
   const projectVariants = {
@@ -204,9 +233,9 @@ export default function Projects() {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const toggleProjectOverlay = (projectId) => {
@@ -224,7 +253,10 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="relative py-20 overflow-hidden text-white bg-zinc-900">
+    <section
+      id="projects"
+      className="relative py-20 overflow-hidden text-white bg-zinc-900"
+    >
       {/* Animated Background Gradient */}
       <div className="absolute inset-0 -z-10">
         <motion.div
@@ -245,12 +277,9 @@ export default function Projects() {
         <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-emerald-500/5 to-teal-500/5" />
       </div>
 
-      <div 
-        ref={ref}
-        className="container relative z-10 px-4 mx-auto"
-      >
+      <div ref={ref} className="container relative z-10 px-4 mx-auto">
         {/* Header */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate={controls}
           variants={headingVariants}
@@ -260,7 +289,9 @@ export default function Projects() {
             Portfolio Showcase
           </h2>
           <p className="max-w-3xl mx-auto mt-4 text-lg text-gray-300 md:text-xl">
-            Explore my journey through projects, certifications, and functional designs. Each section represents a milestone in my continued learning path.
+            Explore my journey through projects, certifications, and functional
+            designs. Each section represents a milestone in my continued
+            learning path.
           </p>
         </motion.div>
 
@@ -309,8 +340,8 @@ export default function Projects() {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden border shadow-lg bg-zinc-800/50 backdrop-blur-sm rounded-xl border-zinc-700/50 hover:border-green-700/50 hover:shadow-xl hover:shadow-green-700/20"
               >
-                <motion.div 
-                  className="relative h-48 overflow-hidden"
+                <motion.div
+                  className="relative h-48 overflow-hidden bg-zinc-900"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                   onClick={() => toggleProjectOverlay(project.id)}
@@ -319,10 +350,31 @@ export default function Projects() {
                     src={project.image}
                     alt={project.title}
                     className="object-cover w-full h-full"
+                    loading="lazy"
+                    onError={(e) => {
+                      console.error(
+                        `Failed to load image for ${project.title}:`,
+                        project.image
+                      );
+                      e.target.style.display = "none";
+                      const parent = e.target.parentElement;
+                      if (
+                        parent &&
+                        !parent.querySelector(".image-placeholder")
+                      ) {
+                        const placeholder = document.createElement("div");
+                        placeholder.className =
+                          "image-placeholder flex items-center justify-center w-full h-full bg-gradient-to-br from-green-900/20 to-emerald-900/20";
+                        placeholder.innerHTML = `<span class="text-green-500/50 text-sm">${project.title}</span>`;
+                        parent.appendChild(placeholder);
+                      }
+                    }}
                   />
-                  <motion.div 
+                  <motion.div
                     className={`absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center gap-4 transition duration-300 ${
-                      activeProject === project.id ? 'opacity-100' : 'opacity-0 hover:opacity-100'
+                      activeProject === project.id
+                        ? "opacity-100"
+                        : "opacity-0 hover:opacity-100"
                     }`}
                   >
                     <motion.a
@@ -356,7 +408,9 @@ export default function Projects() {
                   <h3 className="mb-2 text-xl font-semibold text-green-400">
                     {project.title}
                   </h3>
-                  <p className="mb-4 text-sm leading-relaxed text-gray-300">{project.description}</p>
+                  <p className="mb-4 text-sm leading-relaxed text-gray-300">
+                    {project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, index) => (
                       <motion.span
