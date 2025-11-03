@@ -6,7 +6,7 @@ import ProjectImage3 from "../assets/Projects/Mega store.png";
 import ProjectImage4 from "../assets/Projects/portfolio app.png";
 import ProjectImage5 from "../assets/Projects/watchly.png";
 import ProjectImage6 from "../assets/Projects/Trackify.png";
-import ProjectImage7 from "../assets/Projects/GameZone.png";
+import ProjectImage7 from "../assets/Projects/Gamezone.png";
 import Certification1 from "../assets/Certifications/Advanced React.png"
 import Certification3 from "../assets/Certifications/Html and Css.png"
 import Certification4 from "../assets/Certifications/Programming with Javascript.png"
@@ -310,7 +310,7 @@ export default function Projects() {
                 className="overflow-hidden border shadow-lg bg-zinc-800/50 backdrop-blur-sm rounded-xl border-zinc-700/50 hover:border-green-700/50 hover:shadow-xl hover:shadow-green-700/20"
               >
                 <motion.div 
-                  className="relative h-48 overflow-hidden"
+                  className="relative h-48 overflow-hidden bg-zinc-900"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                   onClick={() => toggleProjectOverlay(project.id)}
@@ -319,6 +319,18 @@ export default function Projects() {
                     src={project.image}
                     alt={project.title}
                     className="object-cover w-full h-full"
+                    loading="lazy"
+                    onError={(e) => {
+                      console.error(`Failed to load image for ${project.title}:`, project.image);
+                      e.target.style.display = 'none';
+                      const parent = e.target.parentElement;
+                      if (parent && !parent.querySelector('.image-placeholder')) {
+                        const placeholder = document.createElement('div');
+                        placeholder.className = 'image-placeholder flex items-center justify-center w-full h-full bg-gradient-to-br from-green-900/20 to-emerald-900/20';
+                        placeholder.innerHTML = `<span class="text-green-500/50 text-sm">${project.title}</span>`;
+                        parent.appendChild(placeholder);
+                      }
+                    }}
                   />
                   <motion.div 
                     className={`absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center gap-4 transition duration-300 ${
