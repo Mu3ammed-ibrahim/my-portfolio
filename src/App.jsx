@@ -1,8 +1,9 @@
 import Navbar from "./Components/Navbar";
 import Hero from "./Components/Hero";
-import Technologies from "./Components/Technologies";
-import AboutMe from "./Components/AboutMe";
-import Projects from "./Components/Projects";
+import FeaturedProjects from "./Components/FeaturedProjects";
+import Skills from "./Components/Skills";
+import Achievements from "./Components/Achievements";
+import Workflow from "./Components/Workflow";
 import Contact from "./Components/Contact";
 import "./App.css";
 
@@ -11,9 +12,10 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <Technologies />
-      <AboutMe />
-      <Projects />
+      <FeaturedProjects />
+      <Skills />
+      <Achievements />
+      <Workflow />
       <Contact />
     </>
   );

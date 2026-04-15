@@ -1,93 +1,96 @@
-import React from "react";
-import Button from "./Button";
 import { motion } from "framer-motion";
-import Logo from "../assets/Icons/my avatar.png";
-import TypingText from "./TypingText";
-import JarvisHUD from "./JarvisHUD"; // Import the JARVIS component
+import RoleSwitcher from "./RoleSwitcher";
 
 const Hero = () => {
   return (
-    <section className="relative flex flex-col-reverse items-center justify-between min-h-screen px-4 py-10 overflow-hidden md:flex-row md:px-10">
-      {/* JARVIS HUD Background */}
+    <section className="relative flex items-center justify-center min-h-screen px-4 overflow-hidden">
+      {/* Background Image — replace the src with your own image */}
+      {/* Drop your image in src/assets/ and import it, or use a URL */}
       <div className="absolute inset-0 -z-10">
-        <JarvisHUD />
+        <div className="absolute inset-0 bg-brand-bg" />
+        {/* Uncomment and update when you have your bg image:
+        <img
+          src={yourBgImage}
+          alt=""
+          className="w-full h-full object-cover opacity-30"
+        />
+        */}
+        {/* Subtle radial glow as a fallback */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(34,197,94,0.08)_0%,_transparent_70%)]" />
       </div>
 
       {/* Content */}
-      <motion.div
-        initial={{ opacity: 0, y: -100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="z-10 flex flex-col justify-center w-full gap-6 mt-10 text-center md:gap-10 md:w-1/2 md:text-left md:mt-0"
-      >
-        <motion.h1
-          className="text-4xl font-bold text-green-500 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+      <div className="z-10 flex flex-col items-center text-center max-w-4xl mx-auto">
+        {/* Badge */}
+        <motion.span
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="inline-block text-sm font-medium text-brand-cta bg-brand-cta/10 border border-brand-cta/20 rounded-full px-4 py-1.5 mb-6"
         >
-          Hello, I&apos;m
+          Frontend Developer
+        </motion.span>
+
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-brand-text leading-tight mb-6"
+        >
+          Building scalable{" "}
+          <span className="text-brand-cta">web platforms</span>
         </motion.h1>
 
+        {/* Role Switcher */}
         <motion.div
-          className="overflow-hidden h-19 sm:h-20 md:h-24"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          className="mb-6"
         >
-          <TypingText
-            phrases={["Mohammed Ibrahim", "Frontend Developer", "Web Designer"]}
-            typingSpeed={100}
-            pauseTime={1500}
-          />
+          <RoleSwitcher />
         </motion.div>
 
-        <motion.div
-          className="flex flex-col justify-center gap-4 mt-4 sm:flex-row sm:gap-6 md:gap-10 md:justify-start"
+        {/* Subtitle */}
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+          className="text-lg md:text-xl text-brand-muted max-w-2xl mb-10"
         >
-          <motion.div
+          Specializing in React, Next.js &amp; modern web architecture.
+          Turning complex business problems into elegant digital solutions.
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row gap-4"
+        >
+          <motion.a
+            href="#projects"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            className="inline-flex items-center justify-center px-8 py-3.5 bg-brand-cta hover:bg-brand-cta-hover text-white font-medium rounded-lg transition-colors cursor-pointer"
           >
-            <Button>
-              <a
-                href="/Mohammed Almuatsim Ibrahim V1-Resume.pdf.pdf"
-                download="Mohammed Almuatsim Ibrahim Gallab RESUME"
-                rel="noopener noreferrer"
-              >
-                Download CV
-              </a>
-            </Button>
-          </motion.div>
-
-          <motion.div
+            View Projects
+          </motion.a>
+          <motion.a
+            href="/Mohammed Almuatsim Ibrahim V1-Resume.pdf.pdf"
+            download="Mohammed_Ibrahim_Resume"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            className="inline-flex items-center justify-center px-8 py-3.5 border border-brand-cta/30 text-brand-cta hover:bg-brand-cta/10 font-medium rounded-lg transition-colors cursor-pointer"
           >
-            <Button bgClass="bg-green-700 hover:bg-white">
-              <a href="#contact">Hire Me</a>
-            </Button>
-          </motion.div>
+            Download CV
+          </motion.a>
         </motion.div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-        className="relative z-10 flex justify-center w-full mb-8 md:w-1/2 md:mb-0"
-      >
-        <motion.img
-          src={Logo}
-          alt="Mohammed Ibrahim"
-          className="relative object-contain w-64 h-auto sm:w-72 md:w-80 lg:w-96"
-        />
-      </motion.div>
+      </div>
     </section>
   );
 };

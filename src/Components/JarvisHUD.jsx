@@ -7,6 +7,11 @@ const JarvisHUD = () => {
   useEffect(() => {
     if (!canvasRef.current) return;
 
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    const isMobile = window.innerWidth < 768;
+
     // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
@@ -114,7 +119,8 @@ const JarvisHUD = () => {
     };
 
     const arcs = [];
-    for (let i = 0; i < 16; i++) {
+    const arcCount = isMobile ? 8 : 16;
+    for (let i = 0; i < arcCount; i++) {
       const radius = 3 + Math.random() * 5;
       const startAngle = Math.random() * Math.PI * 2;
       const arcLength = Math.PI * 0.2 + Math.random() * Math.PI * 0.6;
@@ -204,8 +210,9 @@ const JarvisHUD = () => {
 
     // Dots
     const dots = [];
-    for (let i = 0; i < 48; i++) {
-      const angle = (i / 48) * Math.PI * 2;
+    const dotCount = isMobile ? 24 : 48;
+    for (let i = 0; i < dotCount; i++) {
+      const angle = (i / dotCount) * Math.PI * 2;
       const radius = 7.5;
 
       const dotGeometry = new THREE.CircleGeometry(0.1, 8);
@@ -220,7 +227,7 @@ const JarvisHUD = () => {
       dot.userData = {
         angle: angle,
         radius: radius,
-        pulsePhase: (i / 48) * Math.PI * 2,
+        pulsePhase: (i / dotCount) * Math.PI * 2,
         baseRadius: radius,
       };
 
@@ -250,7 +257,7 @@ const JarvisHUD = () => {
 
     // Particles
     const particles = [];
-    const particleCount = 100;
+    const particleCount = isMobile ? 50 : 100;
 
     for (let i = 0; i < particleCount; i++) {
       const particleGeometry = new THREE.CircleGeometry(0.03, 6);
@@ -313,8 +320,24 @@ const JarvisHUD = () => {
 
     // Animation
     const clock = new THREE.Clock();
+    let animationId = null;
+    let isPaused = false;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        isPaused = true;
+        clock.stop();
+      } else {
+        isPaused = false;
+        clock.start();
+        if (!animationId) animate();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     const animate = () => {
-      requestAnimationFrame(animate);
+      if (isPaused) { animationId = null; return; }
+      animationId = requestAnimationFrame(animate);
       const elapsedTime = clock.getElapsedTime();
 
       circles.forEach((circle) => {
@@ -349,7 +372,7 @@ const JarvisHUD = () => {
         arc.material.opacity = 0.5 + pulse * 0.4;
       });
 
-      radialLines.forEach((line, index) => {
+      radialLines.forEach((line) => {
         const wave =
           Math.sin(elapsedTime * 3 + line.userData.pulsePhase) * 0.5 + 0.5;
         let opacity = line.userData.baseOpacity + wave * 0.25;
@@ -369,7 +392,7 @@ const JarvisHUD = () => {
         bracket.material.opacity = 0.5 + pulse * 0.3;
       });
 
-      dots.forEach((dot, index) => {
+      dots.forEach((dot) => {
         const pulse =
           Math.sin(elapsedTime * 3 + dot.userData.pulsePhase) * 0.5 + 0.5;
         let opacity = 0.4 + pulse * 0.5;
@@ -422,10 +445,19 @@ const JarvisHUD = () => {
 
       renderer.render(scene, camera);
     };
-    animate();
+
+    if (prefersReducedMotion) {
+      // Render a single static frame
+      renderer.render(scene, camera);
+    } else {
+      animate();
+    }
 
     // Cleanup
     return () => {
+      isPaused = true;
+      if (animationId) cancelAnimationFrame(animationId);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("click", handleClick);
       window.removeEventListener("resize", handleResize);
