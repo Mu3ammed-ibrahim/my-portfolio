@@ -2,7 +2,7 @@ import Navbar from "./Components/Navbar";
 import Hero from "./Components/Hero";
 import TechStack from "./Components/TechStack";
 import FeaturedProjects from "./Components/FeaturedProjects";
-import Achievements from "./Components/Achievements";
+import Experience from "./Components/Experience";
 import Workflow from "./Components/Workflow";
 import Services from "./Components/Services";
 import Contact from "./Components/Contact";
@@ -32,9 +32,7 @@ function App() {
         <FeaturedProjects />
       </section>
 
-      <section id="achievements">
-        <Achievements />
-      </section>
+      <Experience />
 
       <Workflow />
 
