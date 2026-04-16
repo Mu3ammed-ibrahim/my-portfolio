@@ -11,7 +11,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = ["projects", "skills", "achievements", "contact"];
+      const sections = ["projects", "services", "achievements", "contact"];
       const current = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
@@ -29,7 +29,7 @@ const Navbar = () => {
 
   const navLinks = [
     { href: "#projects", label: "Projects" },
-    { href: "#skills", label: "Skills" },
+    { href: "#services", label: "Services" },
     { href: "#achievements", label: "Achievements" },
     { href: "#contact", label: "Contact" },
   ];
