@@ -103,7 +103,7 @@ const data = [
           <img
             src={NabdhProjectsImg}
             alt="Nabdh projects page"
-            className="col-span-2 h-20 w-full rounded-lg object-cover md:h-44 lg:h-60 shadow-[0_0_24px_rgba(0,0,0,0.4)]"
+            className={`col-span-2 ${imgClass}`}
           />
         </div>
       </div>
