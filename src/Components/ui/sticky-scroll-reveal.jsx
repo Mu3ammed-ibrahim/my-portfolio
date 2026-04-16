@@ -1,8 +1,13 @@
-"use client";
 import React, { useEffect, useRef, useState } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
+
+const linearGradients = [
+  "#1E293B",
+  "#1E293B",
+  "#1E293B",
+];
 
 export const StickyScroll = ({
   content,
@@ -34,11 +39,6 @@ export const StickyScroll = ({
     "#0F172A",
     "#0F172A",
     "#0F172A",
-  ];
-  const linearGradients = [
-    "#1E293B",
-    "#1E293B",
-    "#1E293B",
   ];
 
   const [backgroundGradient, setBackgroundGradient] = useState(linearGradients[0]);
@@ -75,7 +75,7 @@ export const StickyScroll = ({
                 animate={{
                   opacity: activeCard === index ? 1 : 0.3,
                 }}
-                className="text-kg mt-10 max-w-sm text-brand-muted">
+                className="text-sm mt-10 max-w-sm text-brand-muted">
                 {item.description}
               </motion.p>
             </div>
