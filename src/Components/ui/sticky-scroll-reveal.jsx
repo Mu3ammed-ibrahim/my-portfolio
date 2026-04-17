@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useMotionValueEvent, useScroll } from "motion/react";
+import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
 
 const linearGradients = [
@@ -9,29 +9,40 @@ const linearGradients = [
   "#1E293B",
 ];
 
+const ContentItem = ({ item, index, activeCard, onInView }) => {
+  const { ref, inView } = useInView({
+    rootMargin: "-33% 0px -33% 0px",
+  });
+
+  useEffect(() => {
+    if (inView) onInView(index);
+  }, [inView, index, onInView]);
+
+  return (
+    <div ref={ref} className="my-28">
+      <motion.h2
+        initial={{ opacity: 0 }}
+        animate={{ opacity: activeCard === index ? 1 : 0.3 }}
+        className="text-2xl font-bold text-brand-text"
+      >
+        {item.title}
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: activeCard === index ? 1 : 0.3 }}
+        className="text-sm mt-10 max-w-sm text-brand-muted"
+      >
+        {item.description}
+      </motion.p>
+    </div>
+  );
+};
+
 export const StickyScroll = ({
   content,
   contentClassName
 }) => {
-  const [activeCard, setActiveCard] = React.useState(0);
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const cardLength = content.length;
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const cardsBreakpoints = content.map((_, index) => index / cardLength);
-    const closestBreakpointIndex = cardsBreakpoints.reduce((acc, breakpoint, index) => {
-      const distance = Math.abs(latest - breakpoint);
-      if (distance < Math.abs(latest - cardsBreakpoints[acc])) {
-        return index;
-      }
-      return acc;
-    }, 0);
-    setActiveCard(closestBreakpointIndex);
-  });
+  const [activeCard, setActiveCard] = useState(0);
 
   const backgroundColors = [
     "#0F172A",
@@ -51,32 +62,17 @@ export const StickyScroll = ({
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
       className="relative flex justify-center space-x-10 rounded-md p-10"
-      ref={ref}>
+    >
       <div className="div relative flex items-start px-4">
         <div className="max-w-2xl">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-28">
-              <motion.h2
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-2xl font-bold text-brand-text">
-                {item.title}
-              </motion.h2>
-              <motion.p
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-sm mt-10 max-w-sm text-brand-muted">
-                {item.description}
-              </motion.p>
-            </div>
+            <ContentItem
+              key={item.title + index}
+              item={item}
+              index={index}
+              activeCard={activeCard}
+              onInView={setActiveCard}
+            />
           ))}
           <div className="h-[500px]" />
         </div>
