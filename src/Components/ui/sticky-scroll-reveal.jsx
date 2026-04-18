@@ -4,12 +4,12 @@ import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
 
 const linearGradients = [
-  "#1E293B",
-  "#1E293B",
-  "#1E293B",
+  "#111111",
+  "#111111",
+  "#111111",
 ];
 
-const ContentItem = ({ item, index, activeCard, onInView }) => {
+const ContentItem = ({ item, index, activeCard, onInView, onItemClick }) => {
   const { ref, inView } = useInView({
     rootMargin: "-33% 0px -33% 0px",
   });
@@ -19,11 +19,15 @@ const ContentItem = ({ item, index, activeCard, onInView }) => {
   }, [inView, index, onInView]);
 
   return (
-    <div ref={ref} className="my-28">
+    <div
+      ref={ref}
+      className="my-28 cursor-pointer group"
+      onClick={() => onItemClick?.(index)}
+    >
       <motion.h2
         initial={{ opacity: 0 }}
         animate={{ opacity: activeCard === index ? 1 : 0.3 }}
-        className="text-2xl font-bold text-brand-text"
+        className="text-2xl font-bold text-brand-text group-hover:text-brand-cta transition-colors duration-200"
       >
         {item.title}
       </motion.h2>
@@ -34,20 +38,28 @@ const ContentItem = ({ item, index, activeCard, onInView }) => {
       >
         {item.description}
       </motion.p>
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: activeCard === index ? 1 : 0 }}
+        className="inline-block mt-4 text-xs text-brand-cta font-medium"
+      >
+        View case study →
+      </motion.span>
     </div>
   );
 };
 
 export const StickyScroll = ({
   content,
-  contentClassName
+  contentClassName,
+  onItemClick,
 }) => {
   const [activeCard, setActiveCard] = useState(0);
 
   const backgroundColors = [
-    "#0F172A",
-    "#0F172A",
-    "#0F172A",
+    "#0A0A0A",
+    "#0A0A0A",
+    "#0A0A0A",
   ];
 
   const [backgroundGradient, setBackgroundGradient] = useState(linearGradients[0]);
@@ -72,6 +84,7 @@ export const StickyScroll = ({
               index={index}
               activeCard={activeCard}
               onInView={setActiveCard}
+              onItemClick={onItemClick}
             />
           ))}
           <div className="h-[500px]" />
