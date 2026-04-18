@@ -6,9 +6,10 @@ export default function ProjectModal({ project, onClose }) {
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
+    const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = prev;
     };
   }, []);
 
@@ -46,6 +47,9 @@ export default function ProjectModal({ project, onClose }) {
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
           className="relative bg-zinc-900 border border-zinc-700 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
           onClick={(e) => e.stopPropagation()}
         >
           <button
@@ -104,6 +108,7 @@ export default function ProjectModal({ project, onClose }) {
                           : "w-1.5 h-1.5 bg-white/40"
                       }`}
                       aria-label={`Image ${i + 1}`}
+                      aria-current={i === currentImage ? "true" : undefined}
                     />
                   ))}
                 </div>
@@ -115,7 +120,7 @@ export default function ProjectModal({ project, onClose }) {
                 <p className="text-xs font-medium text-green-500 uppercase tracking-widest mb-1">
                   {project.tagline}
                 </p>
-                <h2 className="text-2xl font-bold text-white">{project.title}</h2>
+                <h2 id="modal-title" className="text-2xl font-bold text-white">{project.title}</h2>
               </div>
 
               <div className="space-y-4 text-sm">
