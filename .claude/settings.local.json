@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(cat)",
+      "Bash(python /tmp/compare_translations.py)",
+      "Bash(python /tmp/analyze_crashes.py)",
+      "Bash(python *)",
+      "Bash(grep *)",
+      "Bash(npx vite *)"
+    ]
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "services": "Services",
+    "achievements": "Achievements",
+    "contact": "Contact",
+    "resume": "Resume",
+    "downloadResume": "Download Resume"
+  },
+  "hero": {
+    "badge": "Frontend Developer",
+    "headline1": "Building scalable",
+    "headline2": "web platforms",
+    "subtitle": "Specializing in React, Next.js & modern web architecture. Turning complex business problems into elegant digital solutions.",
+    "viewProjects": "View Projects",
+    "downloadCV": "Download CV",
+    "roles": [
+      "I build Company Websites",
+      "I build Admin Dashboards",
+      "I build CMS Systems",
+      "I build CRM Platforms"
+    ]
+  },
+  "about": {
+    "title": "About Me",
+    "para1": "I’m a Front-End Developer who builds production-ready web platforms that drive real business outcomes. At Nabdh Alibtikar (نبض الابتكار), I helped build and launch the company website and core business-facing systems, taking ownership across architecture, implementation, and delivery. I focus on interfaces that are fast, scalable, and genuinely useful, with clean structure that teams can maintain over time.",
+    "para2": "My day-to-day stack is React, Next.js, JavaScript, Redux Toolkit, Tailwind CSS, and Framer Motion, and I’m actively expanding into TypeScript and advanced performance optimization. I’ve shipped e-commerce, media, and finance products with API integrations, authentication, protected routes, and reusable component systems. I’m at my best in teams that value product thinking, code quality, and measurable impact."
+  },
+  "featured": {
+    "title": "Featured Projects",
+    "subtitle": "Production systems solving real business problems.",
+    "viewCaseStudy": "View Case Study"
+  },
+  "projectData": {
+    "nabdh-alibtikar": {
+      "tagline": "Company website + CMS/CRM",
+      "description": "Designed and built the full company website, implemented CMS and CRM using Supabase and Next.js — responsible for performance, maintenance, and the full tech stack.",
+      "problem": "The company needed a full web presence — website, content management, and customer relationship tools — with no backend developer on the team.",
+      "solution": "Architected and built the entire stack solo: company website, a custom CMS for content updates, and a CRM system — all powered by Supabase (database, auth, storage) with Next.js and React on the frontend.",
+      "result": "A fully operational platform the client's team manages independently, with no ongoing developer dependency."
+    },
+    "kobonvip": {
+      "tagline": "Coupon platform + admin dashboard",
+      "description": "Coupon aggregation platform with role-based admin dashboard, merchant analytics, and real-time coupon validation built with React, Redux Toolkit, and Supabase.",
+      "problem": "A client needed a coupon aggregation platform where users browse deals and the business can manage coupons, stores, and track engagement — all without a backend team.",
+      "solution": "Built a public-facing coupon site alongside a full admin dashboard with CRUD operations, store + logo management, and a click-tracking system to surface the most-used coupons. SEO-optimized for organic discovery.",
+      "result": "The client can independently manage their entire catalogue and use click data to prioritize high-performing coupons."
+    },
+    "watchly": {
+      "tagline": "Movie & anime discovery platform",
+      "description": "Movie discovery app consuming the TMDB API — search, filtering, watchlists, and dynamic routing. Demonstrates clean API integration patterns.",
+      "problem": "Needed a real project to sharpen API integration, pagination, and Next.js skills beyond tutorial exercises.",
+      "solution": "Built a full movie, TV series, and anime discovery platform on the TMDB API — search, filtering, dynamic routing, and a personal watchlist with save/watched states.",
+      "result": "A polished, production-quality learning project that demonstrates clean API patterns, state management, and user-first library UX."
+    }
+  },
+  "modal": {
+    "problem": "Problem",
+    "solution": "Solution",
+    "result": "Result",
+    "github": "GitHub",
+    "liveSite": "Live Site",
+    "closeModal": "Close modal",
+    "prevImage": "Previous image",
+    "nextImage": "Next image",
+    "imageLabel": "Image {{num}}"
+  },
+  "portfolio": {
+    "title": "Portfolio Showcase",
+    "subtitle": "Explore my journey through projects, certifications, and functional designs. Each section represents a milestone in my continued learning path.",
+    "tabs": {
+      "projects": "Projects",
+      "certifications": "Certifications",
+      "designs": "Designs"
+    },
+    "buttons": {
+      "liveDemo": "Live Demo",
+      "github": "GitHub",
+      "viewCredential": "View Credential",
+      "view": "View"
+    },
+    "projectDescriptions": {
+      "7": "A fully responsive gaming store landing page.",
+      "6": "Trackify is a modern, responsive expense tracking web application built to help users manage their personal finances with ease.",
+      "5": "A web application for watching movies and TV shows.",
+      "1": "A fully responsive e-commerce web application showcasing advanced front-end skills.",
+      "4": "My personal portfolio to showcase projects and skills with a modern look.",
+      "2": "A game where the player jumps obstacles using CSS keyframe animation.",
+      "3": "Multi-page website for Mega-Store built with clean HTML/CSS and some JavaScript."
+    },
+    "certifications": {
+      "1": "Meta Frontend Developer Certification",
+      "2": "React Advanced",
+      "3": "Principles Of UX/UI Design",
+      "4": "Programming with Javascript",
+      "5": "Html and Css",
+      "6": "React Basics"
+    },
+    "designs": {
+      "1": {
+        "title": "Little Lemon Restaurant",
+        "description": "Designed a modern and vibrant restaurant website with a focus on user experience."
+      },
+      "2": {
+        "title": "Mobile Banking App",
+        "description": "Sleek and intuitive mobile banking interface with focus on user experience."
+      }
+    }
+  },
+  "tech": {
+    "title": "My Technology Stack",
+    "label": "Technologies",
+    "loading": "Loading technologies..."
+  },
+  "experience": {
+    "journeyTitle": "My Journey",
+    "journeySubtitle": "From self-teaching to production — a timeline of growth.",
+    "entries": {
+      "2023": "Started self-teaching HTML, CSS & JavaScript — built personal projects to cement the fundamentals.",
+      "aug-sep-2024": "Internship @ KreativeStorm — built an e-commerce store and a browser jumping game in a team using HTML, CSS & JS.",
+      "late-2024": "Completed the Meta Frontend Developer Professional Certificate on Coursera — covering React, Advanced React, UX/UI Design, JavaScript, and HTML/CSS.",
+      "2025": "Freelance frontend developer — delivered 5+ production-ready projects to clients including dashboards, API-integrated apps, and full-stack CMS/CRM features.",
+      "oct-2025-now": "UI/UX & Frontend Developer @ Nabdh-Alibtikar — designed and built the company website, implemented CMS & CRM with Supabase and Next.js, responsible for tech infrastructure and ongoing performance."
+    },
+    "certBadge": {
+      "title": "Meta Frontend Developer",
+      "subtitle": "Professional Certificate · Coursera · 2024"
+    },
+    "altPortfolio": "Portfolio project",
+    "altEcommerce": "E-commerce app",
+    "altJumping": "Jumping game",
+    "altTrackify": "Trackify",
+    "altWatchly": "Watchly",
+    "altNabdh": "Nabdh website",
+    "altNabdhService": "Nabdh services section",
+    "altNabdhProjects": "Nabdh projects page"
+  },
+  "services": {
+    "title": "What I Offer",
+    "subtitle": "Services & capabilities",
+    "items": [
+      { "title": "Frontend Development", "description": "Building fast, responsive UIs with React and modern tooling." },
+      { "title": "UI/UX Implementation", "description": "Translating designs into pixel-perfect, accessible interfaces." },
+      { "title": "Responsive Design", "description": "Layouts that work flawlessly across all screen sizes." },
+      { "title": "Performance Optimization", "description": "Lazy loading, code splitting, and render optimization." },
+      { "title": "API Integration", "description": "Connecting frontends to REST APIs and third-party services." },
+      { "title": "Component Libraries", "description": "Building reusable, maintainable design systems." },
+      { "title": "Version Control", "description": "Git workflows, branching strategies, and clean code reviews." },
+      { "title": "Animation & Motion", "description": "Smooth, purposeful animations with Framer Motion." }
+    ]
+  },
+  "contact": {
+    "title": "Let's build your next platform",
+    "subtitle": "Have a project in mind? Let's connect and bring it to life.",
+    "getInTouch": "Get in Touch",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "chatWhatsapp": "Chat on WhatsApp",
+    "location": "Location",
+    "locationValue": "Makkah, Saudi Arabia",
+    "connectWith": "Connect With Me",
+    "sendMessage": "Send Me a Message",
+    "yourName": "Your Name",
+    "yourEmail": "Your Email",
+    "subject": "Subject",
+    "yourMessage": "Your Message",
+    "placeholderName": "John Doe",
+    "placeholderEmail": "john@example.com",
+    "placeholderSubject": "Project Inquiry",
+    "placeholderMessage": "Hello, I'd like to talk about...",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "successTitle": "Message Sent Successfully!",
+    "successMessage": "Thank you for reaching out! I've received your message and will get back to you as soon as possible.",
+    "responseTime": "Expected response time: 24-48 hours",
+    "sendAnother": "Send Another Message",
+    "errorMessage": "Something went wrong. Try again later."
+  },
+  "floatingNav": {
+    "home": "Home",
+    "projects": "Projects",
+    "services": "Services",
+    "achievements": "Achievements",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
+  "workflow": {
+    "title": "Development Workflow",
+    "subtitle": "My end-to-end process for delivering production-ready web platforms.",
+    "steps": [
+      { "title": "Design", "description": "UI/UX wireframes & prototypes in Figma" },
+      { "title": "Development", "description": "Component-driven React with Tailwind CSS" },
+      { "title": "CMS Integration", "description": "Dynamic content management & APIs" },
+      { "title": "Deployment", "description": "CI/CD pipeline, DNS & SSL setup" },
+      { "title": "Optimization", "description": "Lighthouse audits & performance tuning" }
+    ]
+  }
+}

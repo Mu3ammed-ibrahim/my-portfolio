@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Logo from "../assets/Icons/my avatar.png";
-import { Github, Linkedin, LucideInstagram, Mail } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import myImg2 from '../assets/My-img2.png';
+import { Github, Linkedin, LucideInstagram } from "lucide-react";
 
 const AboutMe = () => {
-  // State to track active tab
-  const [activeTab, setActiveTab] = useState("about");
-
-  // Create animation controls and in-view detection
-  // Remove triggerOnce: true to allow animations to replay when scrolling
-  const [ref, inView] = useInView({
-    threshold: 0.3,
-  });
-
+  const { t } = useTranslation();
+  const [ref, inView] = useInView({ threshold: 0.3 });
   const controls = useAnimation();
 
-  // Trigger animations whenever component comes into view
   useEffect(() => {
     if (inView) {
       controls.start("visible");
@@ -25,16 +18,12 @@ const AboutMe = () => {
     }
   }, [controls, inView]);
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.2,
-      },
+      transition: { duration: 0.8, staggerChildren: 0.2 },
     },
   };
 
@@ -43,36 +32,8 @@ const AboutMe = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
+      transition: { duration: 0.8, ease: "easeOut" },
     },
-  };
-
-  const skillVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.4,
-      },
-    },
-  };
-
-  // Staggered animation for skills and experience items
-  const listItemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: (i) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    }),
   };
 
   return (
@@ -86,33 +47,41 @@ const AboutMe = () => {
       >
         <motion.div
           variants={itemVariants}
-          className="flex flex-col items-start gap-12 md:flex-row"
+          className="flex flex-col items-start gap-12 md:flex-row rtl:md:flex-row-reverse"
         >
           {/* Profile Image */}
           <motion.div
             variants={itemVariants}
             className="flex flex-col items-center w-full md:w-1/3"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-              className="relative w-64 h-64 mb-6 overflow-hidden border-4 border-green-700 rounded-full shadow-xl"
-            >
-              <img
-                src={Logo}
-                alt="Mohammed Ibrahim"
-                className="object-cover w-full h-full"
-              />
-            </motion.div>
+            <div className="relative mb-6">
+              {/* Glow */}
+              {/* <div
+                className="absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_50%_40%,rgba(34,197,94,0.12)_0%,transparent_70%)] blur-lg scale-110 -z-10 pointer-events-none"
+                aria-hidden="true"
+              /> */}
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.3 }}
+                className="relative overflow-hidden rounded-2xl border border-brand-cta/20 shadow-[0_0_20px_rgba(34,197,94,0.1)]"
+              >
+                <img
+                  src={myImg2}
+                  alt="Mohammed Ibrahim — digital illustration, three-quarter view with green headphones"
+                  className="w-52 md:w-full h-auto object-cover "
+                  style={{ aspectRatio: "3/4" }}
+                />
+              </motion.div>
+            </div>
 
             <motion.div variants={itemVariants} className="flex gap-4 mt-4">
               <motion.a
                 href="https://github.com/Mu3ammed-ibrahim"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -3, color: "#4ade80" }}
-                className="text-white hover:text-green-600"
-                aria-label="GitHub"
+                whileHover={{ y: -3, color: "#22C55E" }}
+                className="text-brand-text hover:text-brand-cta"
+                aria-label={t("about.ariaGithub")}
               >
                 <Github size={22} />
               </motion.a>
@@ -120,20 +89,19 @@ const AboutMe = () => {
                 href="https://www.linkedin.com/in/mohammed-almutassim-gallab-39a11098"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -3, color: "#4ade80" }}
-                className="text-white hover:text-green-600"
-                aria-label="LinkedIn"
+                whileHover={{ y: -3, color: "#22C55E" }}
+                className="text-brand-text hover:text-brand-cta"
+                aria-label={t("about.ariaLinkedin")}
               >
                 <Linkedin size={22} />
               </motion.a>
-
               <motion.a
                 href="https://www.instagram.com/m0hammed_code"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -3, color: "#4ade80" }}
-                className="text-white hover:text-green-600"
-                aria-label="Email"
+                whileHover={{ y: -3, color: "#22C55E" }}
+                className="text-brand-text hover:text-brand-cta"
+                aria-label={t("about.ariaInstagram")}
               >
                 <LucideInstagram size={22} />
               </motion.a>
@@ -144,145 +112,28 @@ const AboutMe = () => {
           <motion.div variants={itemVariants} className="w-full md:w-2/3">
             <motion.h2
               variants={itemVariants}
-              className="mb-5 text-3xl font-bold text-green-600"
+              className="mb-5 type-title"
             >
-              About Me
+              {t("about.title")}
             </motion.h2>
 
-            {/* Tab Navigation */}
-            <div className="flex mb-6 border-b border-zinc-700">
-              <motion.button
-                onClick={() => setActiveTab("about")}
-                whileHover={{ y: -2 }}
-                className={`py-2 px-4 font-medium ${
-                  activeTab === "about"
-                    ? "text-green-500 border-b-2 border-green-500"
-                    : "text-white hover:text-green-400"
-                }`}
-              >
-                About Me
-              </motion.button>
-              <motion.button
-                onClick={() => setActiveTab("experience")}
-                whileHover={{ y: -2 }}
-                className={`py-2 px-4 font-medium ${
-                  activeTab === "experience"
-                    ? "text-green-500 border-b-2 border-green-500"
-                    : "text-white hover:text-green-400"
-                }`}
-              >
-                Experience
-              </motion.button>
-            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mb-6 type-body max-w-prose"
+            >
+              {t("about.para1")}
+            </motion.p>
 
-            {/* About Tab Content */}
-            {activeTab === "about" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="mb-6 text-lg text-white"
-                >
-                  Hello! I'm{" "}
-                  <span className="font-semibold">Mohammed Ibrahim</span>, a
-                  Front-End Developer skilled in HTML, CSS, JavaScript,
-                  React.js, Tailwind CSS, Redux Toolkit, and Next.js. With a
-                  background in Mechatronics Engineering, I bring a strong
-                  problem-solving mindset to creating responsive, accessible,
-                  and visually appealing web applications.
-                </motion.p>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="mb-6 text-lg text-white"
-                >
-                  I’ve built projects like E-shop (e-commerce), Watchly (movie
-                  app), and Trackify (finance tracker) that demonstrate my
-                  ability to design and develop modern, user-focused interfaces.
-                  I also hold multiple Meta Front-End Developer certifications
-                  covering Advanced React, Responsive Design, and UI/UX
-                  Principles, reflecting my commitment to continuous learning
-                  and professional growth. I’m passionate about crafting
-                  high-quality digital experiences that combine clean design,
-                  performance, and functionality.
-                </motion.p>
-              </motion.div>
-            )}
-
-            {/* Experience Tab Content */}
-            {activeTab === "experience" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-8"
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="p-6 mb-8 border rounded-lg shadow-sm bg-zinc-800 border-zinc-700"
-                >
-                  <div className="pb-4 mb-4 border-b border-zinc-700">
-                    <h4 className="font-medium text-white">
-                      Front-end Development Intern
-                    </h4>
-                    <p className="text-sm text-gray-400">
-                      KreativeStorm Company | 2024
-                    </p>
-                    <ul className="pl-5 mt-2 text-gray-300 list-disc">
-                      {[
-                        "Collaborated with a development team to build an interactive shopping store",
-                        "Developed interactive web games including a jumping man game",
-                        "Created responsive calculator application using HTML, CSS and JavaScript",
-                      ].map((item, i) => (
-                        <motion.li
-                          key={i}
-                          custom={i}
-                          variants={listItemVariants}
-                          initial="hidden"
-                          animate="visible"
-                        >
-                          {item}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="font-medium text-white">
-                      Self-Driven Projects
-                    </h4>
-                    <p className="text-sm text-gray-400">2022 - Present</p>
-                    <ul className="pl-5 mt-2 text-gray-300 list-disc">
-                      {[
-                        "Built a Fullstack Expanse tracker dashboard using Next js, Redux, Tailwind css and Supabase ",
-                        "Developed a Movie library using React , Tailwind CSS and Redux toolkit",
-                        "Desgined and developed a Restruant website using Figma , React and Css ",
-                        "Designed and implemented a weather app and calculator using vanilla JavaScript",
-                      ].map((item, i) => (
-                        <motion.li
-                          key={i}
-                          custom={i}
-                          variants={listItemVariants}
-                          initial="hidden"
-                          animate="visible"
-                        >
-                          {item}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-              </motion.div>
-            )}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mb-6 type-body max-w-prose"
+            >
+              {t("about.para2")}
+            </motion.p>
           </motion.div>
         </motion.div>
       </motion.div>
