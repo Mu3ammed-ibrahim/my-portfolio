@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -48,14 +49,14 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
-function TechCard({ name, icon }) {
+const TechCard = memo(function TechCard({ name, icon }) {
   return (
     <figure className="relative flex cursor-pointer flex-col items-center gap-2 overflow-hidden rounded-xl border px-5 py-4 border-white/10 bg-white/[.03] hover:bg-white/[.06] transition-colors duration-300">
-      <img src={icon} alt={name} className="w-8 h-8 object-contain" />
+      <img src={icon} alt={name} className="w-8 h-8 object-contain" loading="lazy" decoding="async" />
       <figcaption className="text-xs text-brand-muted whitespace-nowrap">{name}</figcaption>
     </figure>
   );
-}
+});
 
 export default function TechStack() {
   const { t } = useTranslation();

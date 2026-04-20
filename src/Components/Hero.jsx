@@ -31,7 +31,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-brand-text leading-tight mb-6"
+            className="text-4xl sm:text-5xl md:text-5xl font-bold text-brand-text leading-tight mb-6"
           >
             {t("hero.headline1")}{" "}
             <span className="text-brand-cta">{t("hero.headline2")}</span>

@@ -26,7 +26,7 @@ export default function Experience() {
             {t("experience.entries.2023")}
           </p>
           <div className="grid grid-cols-1 gap-4">
-            <img src={PortfolioImg} alt={t("experience.altPortfolio")} className={imgClass} />
+            <img src={PortfolioImg} alt={t("experience.altPortfolio")} className={imgClass} loading="lazy" decoding="async" />
           </div>
         </div>
       ),
@@ -39,8 +39,8 @@ export default function Experience() {
             {t("experience.entries.aug-sep-2024")}
           </p>
           <div className="grid grid-cols-2 gap-4">
-            <img src={EcommerceImg} alt={t("experience.altEcommerce")} className={imgClass} />
-            <img src={JumpingImg} alt={t("experience.altJumping")} className={imgClass} />
+            <img src={EcommerceImg} alt={t("experience.altEcommerce")} className={imgClass} loading="lazy" decoding="async" />
+            <img src={JumpingImg} alt={t("experience.altJumping")} className={imgClass} loading="lazy" decoding="async" />
           </div>
         </div>
       ),
@@ -57,6 +57,8 @@ export default function Experience() {
               src={MetaFrontendCertImg}
               alt={t("experience.certBadge.title")}
               className={imgClass}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -70,8 +72,8 @@ export default function Experience() {
             {t("experience.entries.2025")}
           </p>
           <div className="grid grid-cols-2 gap-4">
-            <img src={TrackifyImg} alt={t("experience.altTrackify")} className={imgClass} />
-            <img src={WatchlyImg} alt={t("experience.altWatchly")} className={imgClass} />
+            <img src={TrackifyImg} alt={t("experience.altTrackify")} className={imgClass} loading="lazy" decoding="async" />
+            <img src={WatchlyImg} alt={t("experience.altWatchly")} className={imgClass} loading="lazy" decoding="async" />
           </div>
         </div>
       ),
@@ -84,12 +86,14 @@ export default function Experience() {
             {t("experience.entries.oct-2025-now")}
           </p>
           <div className="grid grid-cols-2 gap-4">
-            <img src={NabdhImg} alt={t("experience.altNabdh")} className={imgClass} />
-            <img src={NabdhServiceImg} alt={t("experience.altNabdhService")} className={imgClass} />
+            <img src={NabdhImg} alt={t("experience.altNabdh")} className={imgClass} loading="lazy" decoding="async" />
+            <img src={NabdhServiceImg} alt={t("experience.altNabdhService")} className={imgClass} loading="lazy" decoding="async" />
             <img
               src={NabdhProjectsImg}
               alt={t("experience.altNabdhProjects")}
               className={`col-span-2 ${imgClass}`}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

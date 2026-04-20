@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
@@ -13,35 +13,51 @@ export default function FeaturedProjects() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [selectedProject, setSelectedProject] = useState(null);
 
-  // Merge base project data with translated strings
-  const translatedProjects = projects.map((p) => ({
-    ...p,
-    tagline: t(`projectData.${p.id}.tagline`),
-    description: t(`projectData.${p.id}.description`),
-    problem: t(`projectData.${p.id}.problem`),
-    solution: t(`projectData.${p.id}.solution`),
-    result: t(`projectData.${p.id}.result`),
-  }));
+  const translatedProjects = useMemo(
+    () =>
+      projects.map((p) => ({
+        ...p,
+        tagline: t(`projectData.${p.id}.tagline`),
+        description: t(`projectData.${p.id}.description`),
+        problem: t(`projectData.${p.id}.problem`),
+        solution: t(`projectData.${p.id}.solution`),
+        result: t(`projectData.${p.id}.result`),
+      })),
+    [t]
+  );
 
-  const stickyContent = translatedProjects.map((project) => ({
-    title: project.title,
-    description: project.description,
-    content: (
-      <img
-        src={project.images[0]}
-        alt={project.title}
-        className="h-full w-full object-cover"
-      />
-    ),
-  }));
+  const stickyContent = useMemo(
+    () =>
+      translatedProjects.map((project) => ({
+        title: project.title,
+        description: project.description,
+        content: (
+          <img
+            src={project.images[0]}
+            alt={project.title}
+            className="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        ),
+      })),
+    [translatedProjects]
+  );
 
-  const carouselSlides = translatedProjects.map((project) => ({
-    src: project.images[0],
-    title: project.title,
-    button: t("featured.viewCaseStudy"),
-  }));
+  const carouselSlides = useMemo(
+    () =>
+      translatedProjects.map((project) => ({
+        src: project.images[0],
+        title: project.title,
+        button: t("featured.viewCaseStudy"),
+      })),
+    [translatedProjects, t]
+  );
 
-  const handleItemClick = (index) => setSelectedProject(translatedProjects[index]);
+  const handleItemClick = useCallback(
+    (index) => setSelectedProject(translatedProjects[index]),
+    [translatedProjects]
+  );
 
   return (
     <section id="projects" className="py-20 md:py-28">
