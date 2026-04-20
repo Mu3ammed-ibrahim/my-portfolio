@@ -23,7 +23,7 @@ export const Timeline = ({ data, heading, subheading }) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div className="w-full overflow-x-clip bg-brand-bg font-sans md:px-10" ref={containerRef}>
+    <div className="w-full overflow-x-hidden bg-brand-bg font-sans md:px-10" ref={containerRef}>
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <h2 className="type-title mb-4 max-w-4xl">
           {heading || "My Journey"}

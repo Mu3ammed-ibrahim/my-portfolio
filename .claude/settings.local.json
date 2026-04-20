@@ -8,7 +8,9 @@
       "Bash(python /tmp/analyze_crashes.py)",
       "Bash(python *)",
       "Bash(grep *)",
-      "Bash(npx vite *)"
+      "Bash(npx vite *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
