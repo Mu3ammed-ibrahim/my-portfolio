@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -28,10 +31,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: "#projects", label: "Projects" },
-    { href: "#services", label: "Services" },
-    { href: "#achievements", label: "Achievements" },
-    { href: "#contact", label: "Contact" },
+    { href: "#projects", label: t("nav.projects") },
+    { href: "#services", label: t("nav.services") },
+    { href: "#experience", label: t("nav.achievements") },
+    { href: "#contact", label: t("nav.contact") },
   ];
 
   return (
@@ -39,7 +42,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
-      className={`py-5 px-6 md:px-8 flex items-center sticky top-0 z-50 justify-between transition-all duration-300 ${
+      className={`py-5 px-6 md:px-8 flex rtl:flex-row-reverse items-center sticky top-0 z-50 justify-between transition-all duration-300 ${
         scrolled
           ? "bg-brand-bg/80 backdrop-blur-xl shadow-2xl border-b border-white/5"
           : "bg-brand-bg/10 backdrop-blur-lg"
@@ -55,7 +58,7 @@ const Navbar = () => {
         <span className="relative inline-block">
           {`</Mo>`}
           <motion.span
-            className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-brand-cta to-emerald-500"
+            className="absolute -bottom-1 left-0 rtl:left-auto rtl:right-0 h-0.5 bg-gradient-to-r from-brand-cta to-emerald-500"
             initial={{ width: 0 }}
             whileHover={{ width: "100%" }}
             transition={{ duration: 0.3 }}
@@ -79,7 +82,7 @@ const Navbar = () => {
             }`}
           >
             {link.label}
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-cta to-emerald-500 group-hover:w-full transition-all duration-300" />
+            <span className="absolute -bottom-1 left-0 rtl:left-auto rtl:right-0 w-0 h-0.5 bg-gradient-to-r from-brand-cta to-emerald-500 group-hover:w-full transition-all duration-300" />
             {activeSection === link.href.substring(1) && (
               <motion.span
                 layoutId="activeSection"
@@ -92,9 +95,11 @@ const Navbar = () => {
           </motion.a>
         ))}
 
+        <LanguageSwitcher />
+
         {/* Resume Button */}
         <motion.a
-          href="/Mohammed Almuatsim Ibrahim V1-Resume.pdf.pdf"
+          href="/Mohammed%20Almuatsim%20Ibrahim%20Gallab%20resume%20(4).pdf"
           download="Mohammed_Ibrahim_Resume"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -104,7 +109,7 @@ const Navbar = () => {
           className="inline-flex items-center gap-2 text-sm font-medium px-4 py-2 border border-brand-cta/30 text-brand-cta hover:bg-brand-cta/10 rounded-lg transition-colors cursor-pointer"
         >
           <Download size={14} />
-          Resume
+          {t("nav.resume")}
         </motion.a>
       </div>
 
@@ -151,7 +156,7 @@ const Navbar = () => {
                 </motion.a>
               ))}
               <motion.a
-                href="/Mohammed Almuatsim Ibrahim V1-Resume.pdf.pdf"
+                href="/Mohammed%20Almuatsim%20Ibrahim%20Gallab%20resume%20(4).pdf"
                 download="Mohammed_Ibrahim_Resume"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -159,7 +164,7 @@ const Navbar = () => {
                 className="flex items-center gap-2 text-lg font-medium px-4 py-3 rounded-lg text-brand-cta hover:bg-brand-cta/10 transition-all duration-300 cursor-pointer"
               >
                 <Download size={18} />
-                Download Resume
+                {t("nav.downloadResume")}
               </motion.a>
             </div>
           </motion.div>

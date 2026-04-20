@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import {
   Mail,
   MapPin,
@@ -15,6 +16,7 @@ import emailjs from "@emailjs/browser";
 import { fadeInUp, staggerContainer } from "../data/animations";
 
 const ContactMe = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -46,7 +48,7 @@ const ContactMe = () => {
       setTimeout(() => setSubmitSuccess(false), 8000);
     } catch (error) {
       console.error("Failed to send message:", error);
-      alert("Something went wrong. Try again later.");
+      alert(t("contact.errorMessage"));
     } finally {
       setIsSubmitting(false);
     }
@@ -64,15 +66,12 @@ const ContactMe = () => {
         >
           <motion.h2
             variants={fadeInUp}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-text mb-4"
+            className="type-title mb-4"
           >
-            Let&apos;s build your next platform
+            {t("contact.title")}
           </motion.h2>
-          <motion.p
-            variants={fadeInUp}
-            className="text-brand-muted max-w-2xl mx-auto"
-          >
-            Have a project in mind? Let&apos;s connect and bring it to life.
+          <motion.p variants={fadeInUp} className="type-subtitle max-w-2xl mx-auto">
+            {t("contact.subtitle")}
           </motion.p>
         </motion.div>
 
@@ -88,7 +87,7 @@ const ContactMe = () => {
             <motion.div variants={fadeInUp} className="space-y-6">
               <div className="bg-brand-surface rounded-xl p-6 border border-white/5">
                 <h3 className="text-xl font-semibold text-brand-cta mb-6">
-                  Get in Touch
+                  {t("contact.getInTouch")}
                 </h3>
 
                 <ul className="space-y-5">
@@ -98,7 +97,7 @@ const ContactMe = () => {
                     </div>
                     <div>
                       <h4 className="text-brand-text font-medium text-sm">
-                        Email
+                        {t("contact.email")}
                       </h4>
                       <a
                         href="mailto:www.tota.11@gmail.com"
@@ -115,7 +114,7 @@ const ContactMe = () => {
                     </div>
                     <div>
                       <h4 className="text-brand-text font-medium text-sm">
-                        WhatsApp
+                        {t("contact.whatsapp")}
                       </h4>
                       <a
                         href="https://wa.me/966558636746"
@@ -123,7 +122,7 @@ const ContactMe = () => {
                         rel="noopener noreferrer"
                         className="text-brand-muted text-sm hover:text-brand-cta transition-colors cursor-pointer"
                       >
-                        Chat on WhatsApp
+                        {t("contact.chatWhatsapp")}
                       </a>
                     </div>
                   </li>
@@ -134,10 +133,10 @@ const ContactMe = () => {
                     </div>
                     <div>
                       <h4 className="text-brand-text font-medium text-sm">
-                        Location
+                        {t("contact.location")}
                       </h4>
                       <p className="text-brand-muted text-sm">
-                        Makkah, Saudi Arabia
+                        {t("contact.locationValue")}
                       </p>
                     </div>
                   </li>
@@ -149,7 +148,7 @@ const ContactMe = () => {
                 className="bg-brand-surface rounded-xl p-6 border border-white/5"
               >
                 <h3 className="text-lg font-semibold text-brand-cta mb-4">
-                  Connect With Me
+                  {t("contact.connectWith")}
                 </h3>
                 <div className="flex gap-3">
                   <motion.a
@@ -210,31 +209,26 @@ const ContactMe = () => {
                     <Check className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-brand-cta mb-4 text-center">
-                    Message Sent Successfully!
+                    {t("contact.successTitle")}
                   </h3>
                   <div className="text-brand-text text-center max-w-md mb-6">
-                    <p className="mb-4">
-                      Thank you for reaching out! I&apos;ve received your message
-                      and will get back to you as soon as possible.
-                    </p>
+                    <p className="mb-4">{t("contact.successMessage")}</p>
                     <div className="flex items-center justify-center gap-2 text-brand-muted">
                       <Clock className="w-4 h-4" />
-                      <p className="text-sm">
-                        Expected response time: 24-48 hours
-                      </p>
+                      <p className="text-sm">{t("contact.responseTime")}</p>
                     </div>
                   </div>
                   <button
                     onClick={() => setSubmitSuccess(false)}
                     className="mt-4 bg-brand-surface-alt hover:bg-brand-surface text-brand-text px-6 py-2 rounded-lg transition-colors duration-300 cursor-pointer"
                   >
-                    Send Another Message
+                    {t("contact.sendAnother")}
                   </button>
                 </motion.div>
               ) : (
                 <>
                   <h3 className="text-xl font-semibold text-brand-cta mb-6">
-                    Send Me a Message
+                    {t("contact.sendMessage")}
                   </h3>
 
                   <form onSubmit={handleSubmit} className="space-y-5">
@@ -244,7 +238,7 @@ const ContactMe = () => {
                           htmlFor="name"
                           className="block text-brand-text text-sm font-medium mb-2"
                         >
-                          Your Name
+                          {t("contact.yourName")}
                         </label>
                         <input
                           type="text"
@@ -254,7 +248,7 @@ const ContactMe = () => {
                           onChange={handleChange}
                           required
                           className="w-full bg-brand-bg border border-white/10 rounded-lg px-4 py-3 text-brand-text text-sm focus:outline-none focus:ring-2 focus:ring-brand-cta/50 focus:border-brand-cta/50 transition-all"
-                          placeholder="John Doe"
+                          placeholder={t("contact.placeholderName")}
                         />
                       </div>
 
@@ -263,7 +257,7 @@ const ContactMe = () => {
                           htmlFor="email"
                           className="block text-brand-text text-sm font-medium mb-2"
                         >
-                          Your Email
+                          {t("contact.yourEmail")}
                         </label>
                         <input
                           type="email"
@@ -273,7 +267,7 @@ const ContactMe = () => {
                           onChange={handleChange}
                           required
                           className="w-full bg-brand-bg border border-white/10 rounded-lg px-4 py-3 text-brand-text text-sm focus:outline-none focus:ring-2 focus:ring-brand-cta/50 focus:border-brand-cta/50 transition-all"
-                          placeholder="john@example.com"
+                          placeholder={t("contact.placeholderEmail")}
                         />
                       </div>
                     </div>
@@ -283,7 +277,7 @@ const ContactMe = () => {
                         htmlFor="subject"
                         className="block text-brand-text text-sm font-medium mb-2"
                       >
-                        Subject
+                        {t("contact.subject")}
                       </label>
                       <input
                         type="text"
@@ -293,7 +287,7 @@ const ContactMe = () => {
                         onChange={handleChange}
                         required
                         className="w-full bg-brand-bg border border-white/10 rounded-lg px-4 py-3 text-brand-text text-sm focus:outline-none focus:ring-2 focus:ring-brand-cta/50 focus:border-brand-cta/50 transition-all"
-                        placeholder="Project Inquiry"
+                        placeholder={t("contact.placeholderSubject")}
                       />
                     </div>
 
@@ -302,7 +296,7 @@ const ContactMe = () => {
                         htmlFor="message"
                         className="block text-brand-text text-sm font-medium mb-2"
                       >
-                        Your Message
+                        {t("contact.yourMessage")}
                       </label>
                       <textarea
                         id="message"
@@ -312,7 +306,7 @@ const ContactMe = () => {
                         required
                         rows="5"
                         className="w-full bg-brand-bg border border-white/10 rounded-lg px-4 py-3 text-brand-text text-sm focus:outline-none focus:ring-2 focus:ring-brand-cta/50 focus:border-brand-cta/50 transition-all resize-none"
-                        placeholder="Hello, I'd like to talk about..."
+                        placeholder={t("contact.placeholderMessage")}
                       ></textarea>
                     </div>
 
@@ -324,11 +318,11 @@ const ContactMe = () => {
                       {isSubmitting ? (
                         <div className="flex items-center gap-2">
                           <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
-                          <span>Sending...</span>
+                          <span>{t("contact.sending")}</span>
                         </div>
                       ) : (
                         <>
-                          <span>Send Message</span>
+                          <span>{t("contact.send")}</span>
                           <Send className="w-4 h-4" />
                         </>
                       )}

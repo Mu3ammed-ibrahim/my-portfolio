@@ -19,7 +19,7 @@ export const projects = [
     result:
       "A fully operational platform the client's team manages independently, with no ongoing developer dependency.",
     tech: ["Next.js", "React", "Supabase", "Tailwind CSS"],
-    liveUrl: "#",
+    liveUrl: "https://www.nbdco.sa/ar",
     githubUrl: "#",
   },
   {
@@ -36,7 +36,7 @@ export const projects = [
     result:
       "The client can independently manage their entire catalogue and use click data to prioritize high-performing coupons.",
     tech: ["Next.js", "React", "Supabase", "Redux Toolkit", "Tailwind CSS"],
-    liveUrl: "#",
+    liveUrl: "https://www.kobonvip.com",
     githubUrl: "#",
   },
   {
@@ -53,7 +53,7 @@ export const projects = [
     result:
       "A polished, production-quality learning project that demonstrates clean API patterns, state management, and user-first library UX.",
     tech: ["Next.js", "React", "TMDB API", "Redux Toolkit", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://watchly-m.netlify.app/",
+    githubUrl: "https://github.com/Mu3ammed-ibrahim/Watchly",
   },
 ];

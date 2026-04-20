@@ -1,21 +1,17 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const roles = [
-  "I build Company Websites",
-  "I build Admin Dashboards",
-  "I build CMS Systems",
-  "I build CRM Platforms",
-];
+import { useTranslation } from "react-i18next";
 
 const RoleSwitcher = () => {
+  const { t } = useTranslation();
+  const roles = t("hero.roles", { returnObjects: true });
+
   const [index, setIndex] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mq.matches);
-
     const onChange = (e) => setPrefersReducedMotion(e.matches);
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
@@ -27,7 +23,7 @@ const RoleSwitcher = () => {
       setIndex((prev) => (prev + 1) % roles.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [prefersReducedMotion]);
+  }, [prefersReducedMotion, roles.length]);
 
   if (prefersReducedMotion) {
     return (
