@@ -1,7 +1,7 @@
 import { FloatingDock } from "@/Components/ui/floating-dock";
 import { Home, Briefcase, Wrench, Trophy, Mail, FileText } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 export default function FloatingDockNav() {
   const { t } = useTranslation();
@@ -26,38 +26,41 @@ export default function FloatingDockNav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const items = [
-    {
-      id: "hero",
-      title: t("floatingNav.home"),
-      icon: <Home className="w-full h-full" />,
-      href: "#hero",
-    },
-    {
-      id: "projects",
-      title: t("floatingNav.projects"),
-      icon: <Briefcase className="w-full h-full" />,
-      href: "#projects",
-    },
-    {
-      id: "services",
-      title: t("floatingNav.services"),
-      icon: <Wrench className="w-full h-full" />,
-      href: "#services",
-    },
-    {
-      id: "experience",
-      title: t("floatingNav.achievements"),
-      icon: <Trophy className="w-full h-full" />,
-      href: "#experience",
-    },
-    {
-      id: "contact",
-      title: t("floatingNav.contact"),
-      icon: <Mail className="w-full h-full" />,
-      href: "#contact",
-    },
-  ];
+  const items = useMemo(
+    () => [
+      {
+        id: "hero",
+        title: t("floatingNav.home"),
+        icon: <Home className="w-full h-full" />,
+        href: "#hero",
+      },
+      {
+        id: "projects",
+        title: t("floatingNav.projects"),
+        icon: <Briefcase className="w-full h-full" />,
+        href: "#projects",
+      },
+      {
+        id: "experience",
+        title: t("floatingNav.achievements"),
+        icon: <Trophy className="w-full h-full" />,
+        href: "#experience",
+      },
+      {
+        id: "services",
+        title: t("floatingNav.services"),
+        icon: <Wrench className="w-full h-full" />,
+        href: "#services",
+      },
+      {
+        id: "contact",
+        title: t("floatingNav.contact"),
+        icon: <Mail className="w-full h-full" />,
+        href: "#contact",
+      },
+    ],
+    [t]
+  );
 
   return (
     <>

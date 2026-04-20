@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import {
@@ -25,11 +25,18 @@ const ContactMe = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const successTimerRef = useRef(null);
 
-  const handleChange = (e) => {
+  useEffect(() => {
+    if (!submitSuccess) return;
+    successTimerRef.current = setTimeout(() => setSubmitSuccess(false), 8000);
+    return () => clearTimeout(successTimerRef.current);
+  }, [submitSuccess]);
+
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,7 +52,6 @@ const ContactMe = () => {
       console.log(result.text);
       setSubmitSuccess(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
-      setTimeout(() => setSubmitSuccess(false), 8000);
     } catch (error) {
       console.error("Failed to send message:", error);
       alert(t("contact.errorMessage"));

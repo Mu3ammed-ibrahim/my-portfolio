@@ -70,6 +70,8 @@ const AboutMe = () => {
                   alt="Mohammed Ibrahim — digital illustration, three-quarter view with green headphones"
                   className="w-52 md:w-full h-auto object-cover "
                   style={{ aspectRatio: "3/4" }}
+                  loading="lazy"
+                  decoding="async"
                 />
               </motion.div>
             </div>
@@ -112,7 +114,7 @@ const AboutMe = () => {
           <motion.div variants={itemVariants} className="w-full md:w-2/3">
             <motion.h2
               variants={itemVariants}
-              className="mb-5 type-title"
+              className="mb-5 text-brand-cta type-title"
             >
               {t("about.title")}
             </motion.h2>

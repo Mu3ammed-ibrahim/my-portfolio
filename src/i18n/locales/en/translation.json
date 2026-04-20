@@ -8,9 +8,9 @@
     "downloadResume": "Download Resume"
   },
   "hero": {
-    "badge": "Frontend Developer",
-    "headline1": "Building scalable",
-    "headline2": "web platforms",
+    "badge": "Mohammed Almuatsim Ibrahim",
+    "headline1": "Frontend developer",
+    "headline2": "bulding moderen web platforms",
     "subtitle": "Specializing in React, Next.js & modern web architecture. Turning complex business problems into elegant digital solutions.",
     "viewProjects": "View Projects",
     "downloadCV": "Download CV",
@@ -179,8 +179,8 @@
   "floatingNav": {
     "home": "Home",
     "projects": "Projects",
-    "services": "Services",
     "achievements": "Achievements",
+    "services": "Services",
     "contact": "Contact",
     "resume": "Resume"
   },

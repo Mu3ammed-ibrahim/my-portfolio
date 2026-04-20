@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { cn } from "@/lib/utils";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
@@ -15,7 +16,7 @@ import {
 
 const icons = [Monitor, Paintbrush, Smartphone, Zap, Plug, Component, GitBranch, Layers];
 
-const ServiceCard = ({ title, description, icon: Icon, index }) => (
+const ServiceCard = memo(({ title, description, icon: Icon, index }) => (
   <div
     className={cn(
       "flex flex-col lg:border-r py-10 relative group/feature border-white/5",
@@ -42,7 +43,7 @@ const ServiceCard = ({ title, description, icon: Icon, index }) => (
       {description}
     </p>
   </div>
-);
+));
 
 export default function Services() {
   const { t } = useTranslation();
