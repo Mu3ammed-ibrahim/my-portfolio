@@ -69,7 +69,7 @@ export default function FeaturedProjects() {
         <StickyScroll content={stickyContent} onItemClick={handleItemClick} />
       </div>
 
-      <div className="md:hidden flex flex-col items-center gap-10 px-4 pb-10">
+      <div className="md:hidden flex flex-col items-center gap-10 px-4 pb-10 overflow-hidden">
         <Carousel slides={carouselSlides} onSlideClick={handleItemClick} />
       </div>
 
